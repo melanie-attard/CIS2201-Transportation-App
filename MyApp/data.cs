@@ -18,5 +18,9 @@ namespace MyApp
             optionsBuilder.UseSqlite($"Filename={path}");
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Schedule>().HasNoKey();
+        }
     }
 }
