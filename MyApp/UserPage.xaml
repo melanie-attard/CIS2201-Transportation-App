@@ -3,20 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyApp.UserPage"
              Title="User">
+    
     <VerticalStackLayout Padding="20">
         <Label 
-            Text="Summary of Buses Used"
-            FontSize="16"
-            FontAttributes="Bold"
-            HorizontalOptions="Start"/>
+            Text="Buses Used"
+            Style="{StaticResource titleStyle}"/>
 
         <CollectionView x:Name="busSummary">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="10, 20" ColumnDefinitions="*, 2*">
-                        <Label Grid.Column="0"  Text="{Binding Id}" />
-                        <Label Grid.Column="1" Text="{Binding Name}" />
+                        <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
+                        <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
                     </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label 
+            Text="Routes"
+            Style="{StaticResource titleStyle}"/>
+
+        <CollectionView x:Name="routeList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10, 20" ColumnDefinitions="*, 2*">
+                        <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
+                        <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label 
+            Text="Bus Stops"
+            Style="{StaticResource titleStyle}"/>
+
+        <CollectionView x:Name="stopsList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Name}" FontSize="16" />
+                    </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
