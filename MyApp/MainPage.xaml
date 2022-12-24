@@ -15,6 +15,7 @@
                 Text="Public Transport"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="18"
+                FontAttributes="Bold"
                 Grid.Row="0"
                 Grid.Column="1"
                 VerticalOptions="Center" />
@@ -31,7 +32,7 @@
                 Grid.Row="1"
                 Grid.Column="0"/>
 
-        <Button
+            <Button
                 x:Name="DriverBtn"
                 Text="Driver"
                 SemanticProperties.Hint="Takes you to the driver view"
@@ -42,7 +43,9 @@
                 HorizontalOptions="Center"
                 Grid.Row="1"
                 Grid.Column="1"/>
-    </Grid>
+            
+        </Grid>
+    
         <!--<VerticalStackLayout
             Spacing="25"
             Padding="30,0"
