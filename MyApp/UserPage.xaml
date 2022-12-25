@@ -24,7 +24,7 @@
             Text="Routes"
             Style="{StaticResource titleStyle}"/>
 
-        <CollectionView x:Name="routeList">
+        <CollectionView x:Name="routeList" SelectionMode="Single" SelectionChanged="routeList_SelectionChanged">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="10, 20" ColumnDefinitions="*, 2*">

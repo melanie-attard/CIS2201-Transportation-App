@@ -957,6 +957,10 @@ C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\lp\143\jl\fil
 C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\lp\144\jl\files.cache
 C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\lp\156\jl\files.cache
 C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\lp\157\jl\files.cache
+C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\resizetizer\r\drawable\driver_manager.png
+C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\resizetizer\r\drawable\steering_wheel.png
+C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\resizetizer\r\drawable\user.png
+C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\resizetizer\r\drawable\user_manager.png
 C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\android\assets\mscorlib.dll
 C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\android\assets\System.Collections.Concurrent.dll
 C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\android\assets\System.Data.dll
@@ -965,7 +969,3 @@ C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\android\asset
 C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\android\assets\System.Private.CoreLib.dll
 C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\android\assets\System.Private.Uri.dll
 C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\android\assets\System.Xml.dll
-C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\resizetizer\r\drawable\driver_manager.png
-C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\resizetizer\r\drawable\steering_wheel.png
-C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\resizetizer\r\drawable\user.png
-C:\Repos\CIS2201-Transportation-App\MyApp\obj\Debug\net6.0-android\resizetizer\r\drawable\user_manager.png

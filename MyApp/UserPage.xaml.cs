@@ -19,5 +19,12 @@ public partial class UserPage : ContentPage
         };
 
         busSummary.ItemsSource = routes;
+        routeList.ItemsSource = routes;
+    }
+
+    private async void routeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        int Id = (e.CurrentSelection.FirstOrDefault() as Route).Id;
+        await Shell.Current.GoToAsync($"routeDetails?routeId={Id}");
     }
 }

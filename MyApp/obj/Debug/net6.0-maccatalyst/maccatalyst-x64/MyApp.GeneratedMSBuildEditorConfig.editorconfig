@@ -40,6 +40,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyApp.Resources.Styles.Sty
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[C:/Repos/CIS2201-Transportation-App/MyApp/RouteDetailsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.RouteDetailsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = RouteDetailsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = RouteDetailsPage.xaml
+
 [C:/Repos/CIS2201-Transportation-App/MyApp/UserPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyApp.UserPage.xaml
