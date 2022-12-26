@@ -6,16 +6,16 @@
     xmlns:local="clr-namespace:MyApp">
 
     <FlyoutItem Title="Home" Icon="bus.png">
-        <ShellContent
-            ContentTemplate="{DataTemplate local:MainPage}"/>
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
     </FlyoutItem>
 
     <FlyoutItem Title="User" Icon="user.png">
-        <ShellContent
-            ContentTemplate="{DataTemplate local:UserPage}"/>
+        <ShellContent ContentTemplate="{DataTemplate local:UserPage}"/>
     </FlyoutItem>
 
-    <FlyoutItem Title="User Manager" Icon="user_manager.png"></FlyoutItem>
+    <FlyoutItem Title="User Manager" Icon="user_manager.png">
+        <ShellContent ContentTemplate="{DataTemplate local:UserManagerPage}" />
+    </FlyoutItem>
 
     <FlyoutItem Title="Driver" Icon="steering_wheel.png"></FlyoutItem>
 

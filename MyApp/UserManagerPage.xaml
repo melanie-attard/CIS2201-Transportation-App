@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.UserManagerPage"
+             Title="UserManagerPage">
+    
+    <Grid Padding="10, 20" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto, Auto">
+        <Label Text="Current User Type:"
+               Style="{StaticResource titleStyle}"
+               Grid.Row="0"
+               Grid.Column="0"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"/>
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Padding="3"
+                Margin="20, 0"
+                Grid.Row="0"
+                Grid.Column="1">
+            <!-- adapted from https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/picker?view=net-maui-7.0#set-the-itemssource-property -->
+            <Picker x:Name="picker"
+                    Title="Select a user type..."
+                    HorizontalTextAlignment="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Regular</x:String>
+                        <x:String>Student</x:String>
+                        <x:String>Elder</x:String>
+                        <x:String>Child</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </Border>
+
+        <Label Text="Payment Status:"
+               Style="{StaticResource titleStyle}"
+               Grid.Row="1"
+               Grid.Column="0"
+               Padding="0, 30"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"/>
+
+        <Label x:Name="paymentStats"
+               Text="NOT PAID"
+               FontSize="16"
+               FontAttributes="Bold"
+               Padding="20, 30"
+               TextColor="Red"
+               Grid.Row="1"
+               Grid.Column="1"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"/>
+
+        <Button Text="Set as Paid"
+                x:Name="payBtn"
+                Padding="20, 10"
+                FontSize="Medium"
+                Clicked="payBtn_Clicked"
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                VerticalOptions="Center"
+                HorizontalOptions="End"/>
+    </Grid>
+</ContentPage>

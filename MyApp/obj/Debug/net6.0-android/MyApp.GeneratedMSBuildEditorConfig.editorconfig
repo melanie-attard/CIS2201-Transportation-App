@@ -52,6 +52,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyApp.StopDetailsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = StopDetailsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = StopDetailsPage.xaml
 
+[C:/Repos/CIS2201-Transportation-App/MyApp/UserManagerPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.UserManagerPage.xaml
+build_metadata.AdditionalFiles.TargetPath = UserManagerPage.xaml
+build_metadata.AdditionalFiles.RelativePath = UserManagerPage.xaml
+
 [C:/Repos/CIS2201-Transportation-App/MyApp/UserPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyApp.UserPage.xaml

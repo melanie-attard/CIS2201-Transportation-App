@@ -32,6 +32,9 @@
     <MauiXaml Update="StopDetailsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="UserManagerPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="UserPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
