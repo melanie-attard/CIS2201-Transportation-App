@@ -68,9 +68,9 @@
             <CollectionView x:Name="stopsList" SelectionMode="Single" SelectionChanged="stopsList_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Name}" FontSize="16" Padding="10, 20" />
-                        </VerticalStackLayout>
+                        <Grid Padding="10, 20" RowDefinitions="*">
+                            <Label Text="{Binding Name}" FontSize="18" HorizontalOptions="Center" Grid.Row="0" />
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

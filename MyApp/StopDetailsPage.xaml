@@ -2,11 +2,95 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyApp.StopDetailsPage">
-    
-    <VerticalStackLayout>
+
+    <Grid Padding="10, 10" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
         <Label 
-            Text="Hello"
+            Text="Stop ID: "
+            FontSize="16"
+            Padding="5"
+            Grid.Column="0"
+            Grid.Row="0"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" />
+
+        <Label 
+            x:Name="stopId"
+            FontSize="16"
+            Padding="5"
+            TextDecorations="Underline"
+            Grid.Column="1"
+            Grid.Row="0"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+        <Label 
+            Text="Location: "
+            FontSize="16"
+            Padding="5"
+            Grid.Column="0"
+            Grid.Row="1"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" />
+
+        <Label 
+            x:Name="location"
+            FontSize="16"
+            Padding="5"
+            TextDecorations="Underline"
+            Grid.Column="1"
+            Grid.Row="1"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="Routes and Schedules"
+            Style="{StaticResource titleStyle}"
+            FontSize="16"
+            Grid.Column="0"
+            Grid.Row="2"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" />
+
+        <CollectionView x:Name="timetable" Grid.Row="3" Grid.ColumnSpan="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10, 20" ColumnDefinitions="*, 3*" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
+                        <Label Grid.Column="0" Grid.Row="0"  Text="{Binding RouteId}" FontSize="16" />
+                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Time1}" FontSize="16" />
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding Time2}" FontSize="16" />
+                        <Label Grid.Column="1" Grid.Row="2" Text="{Binding Time3}" FontSize="16" />
+                        <Label Grid.Column="1" Grid.Row="3" Text="{Binding Time4}" FontSize="16" />
+                        <Label Grid.Column="1" Grid.Row="4" Text="{Binding Time5}" FontSize="16" />
+                        <Label Grid.Column="1" Grid.Row="5" Text="{Binding Time6}" FontSize="16" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label 
+            Text="View Closest Buses"
+            Style="{StaticResource titleStyle}"
+            FontSize="16"
+            Grid.Column="0"
+            Grid.Row="4"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" />
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Grid.Row="5" 
+                Grid.ColumnSpan="2">
+            <!-- inspired by https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/layout?view=net-maui-7.0#horizontal-list -->
+            <CollectionView x:Name="closestList" ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding RouteId}" FontSize="16" HorizontalOptions="Center" BackgroundColor="Aqua" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+    </Grid>
 </ContentPage>
