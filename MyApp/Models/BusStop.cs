@@ -11,10 +11,10 @@ namespace MyApp.Models
         public string Name { get; set; }
 
         [NotNull]
-        public string Longitude { get; set; }
+        public int Longitude { get; set; }
 
         [NotNull]
-        public string Latitude { get; set; }
+        public int Latitude { get; set; }
 
         // navigational property
         public ICollection<Schedule> Schedules { get; set; }

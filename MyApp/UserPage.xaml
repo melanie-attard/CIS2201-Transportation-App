@@ -3,6 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyApp.UserPage"
              Title="User">
+    <!-- retrieved from https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/selection?view=net-maui-7.0#change-selected-item-color -->
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="LightCoral" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
     
     <VerticalStackLayout Padding="20">
         <Label 
@@ -22,32 +40,41 @@
 
         <Label 
             Text="Routes"
-            Style="{StaticResource titleStyle}"/>
+            Style="{StaticResource titleStyle}" />
 
-        <CollectionView x:Name="routeList" SelectionMode="Single" SelectionChanged="routeList_SelectionChanged">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="10, 20" ColumnDefinitions="*, 2*">
-                        <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
-                        <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <!-- retrieved from https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/border?view=net-maui-7.0#create-a-border -->
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle">
+            <CollectionView x:Name="routeList" SelectionMode="Single" SelectionChanged="routeList_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10, 20" ColumnDefinitions="*, 2*">
+                            <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
+                            <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
 
         <Label 
             Text="Bus Stops"
             Style="{StaticResource titleStyle}"/>
 
-        <CollectionView x:Name="stopsList">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <VerticalStackLayout>
-                        <Label Text="{Binding Name}" FontSize="16" />
-                    </VerticalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle">
+            <CollectionView x:Name="stopsList" SelectionMode="Single" SelectionChanged="stopsList_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}" FontSize="16" Padding="10, 20" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
     </VerticalStackLayout>
   
 </ContentPage>

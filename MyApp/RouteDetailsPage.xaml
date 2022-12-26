@@ -2,11 +2,48 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyApp.RouteDetailsPage">
-    
-    <VerticalStackLayout>
-        <Label 
-            x:Name="title"
-            Text="Hello"
-            Style="{StaticResource titleStyle}" />
+
+    <VerticalStackLayout Padding="20">
+        <Label Text="Schedule"
+               Style="{StaticResource titleStyle}" />
+        
+        <!-- table -->
+
+        <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
+            <Button Text="Enter Bus"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="20, 10"
+                    FontSize="Medium"
+                    Clicked="EnterBusClicked"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+
+            <Button Text="STOP"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Padding="20, 10"
+                    FontSize="Medium"
+                    Clicked="StopClicked"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+
+            <Label Text="Payment Status: " 
+                   FontSize="16"
+                   Padding="0, 10"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   VerticalOptions="End"
+                   HorizontalOptions="End"/>
+
+            <Label Text="NOT PAID" 
+                   TextColor="Red"
+                   FontSize="16"
+                   Padding="5, 10"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   VerticalOptions="End"
+                   HorizontalOptions="Start" />
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

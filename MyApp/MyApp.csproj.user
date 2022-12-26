@@ -29,6 +29,9 @@
     <MauiXaml Update="RouteDetailsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="StopDetailsPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="UserPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
