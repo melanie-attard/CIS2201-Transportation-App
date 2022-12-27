@@ -40,6 +40,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyApp.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
+[C:/Repos/CIS2201-Transportation-App/MyApp/RegisterDriverPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.RegisterDriverPage.xaml
+build_metadata.AdditionalFiles.TargetPath = RegisterDriverPage.xaml
+build_metadata.AdditionalFiles.RelativePath = RegisterDriverPage.xaml
+
 [C:/Repos/CIS2201-Transportation-App/MyApp/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyApp.Resources.Styles.Colors.xaml

@@ -8,9 +8,10 @@
         <Border Stroke="black"
                 StrokeThickness="1"
                 StrokeShape="RoundRectangle"
+                Padding="20, 0"
                 Grid.Column="0"
                 Grid.Row="0">
-            <Entry Placeholder="Enter ID..."
+            <Entry Placeholder="ID..."
                    HorizontalTextAlignment="Center"
                    FontSize="16"
                    x:Name="driverEntry" />

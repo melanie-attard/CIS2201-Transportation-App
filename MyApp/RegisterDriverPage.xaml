@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.RegisterDriverPage"
+             Title="Register a Driver">
+    <Grid Padding="20" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto">
+        <Label Text="ID:"
+               Style="{StaticResource titleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="0"
+               Grid.Column="0" />
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Margin="0, 10"
+                Padding="20, 0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                Grid.Row="0"
+                Grid.Column="1">
+            <Entry Placeholder="ID..."
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"
+                   x:Name="DriverId" />
+        </Border>
+
+        <Label Text="Name:"
+               Style="{StaticResource titleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="1"
+               Grid.Column="0" />
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Margin="0, 10"
+                Padding="20, 0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                Grid.Row="1"
+                Grid.Column="1">
+            <Entry Placeholder="Name..."
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"
+                   x:Name="Name" />
+        </Border>
+
+        <Label Text="Surname:"
+               Style="{StaticResource titleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="2"
+               Grid.Column="0" />
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Margin="0, 10"
+                Padding="20, 0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                Grid.Row="2"
+                Grid.Column="1">
+            <Entry Placeholder="Surame..."
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"
+                   x:Name="Surname" />
+        </Border>
+
+        <Label Text="Age:"
+               Style="{StaticResource titleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="3"
+               Grid.Column="0" />
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Margin="0, 10"
+                Padding="20, 0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                Grid.Row="3"
+                Grid.Column="1">
+            <Entry Placeholder="Age..."
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"
+                   x:Name="Age" />
+        </Border>
+
+        <Label Text="Phone Number:"
+               Style="{StaticResource titleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="4"
+               Grid.Column="0" />
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Margin="0, 10"
+                Padding="20, 0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                Grid.Row="4"
+                Grid.Column="1">
+            <Entry Placeholder="Phone Number..."
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"
+                   x:Name="PhoneNum" />
+        </Border>
+
+        <Label Text="Address:"
+               Style="{StaticResource titleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="5"
+               Grid.Column="0" />
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Margin="0, 10"
+                Padding="20, 0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                Grid.Row="5"
+                Grid.Column="1">
+            <Entry Placeholder="Address..."
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"
+                   x:Name="Address" />
+        </Border>
+
+        <Button x:Name="createBtn"
+                Text="Create"
+                Margin="20, 20"
+                Padding="20, 10"
+                FontSize="Medium"
+                Clicked="createBtn_Clicked"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                Grid.Row="6"
+                Grid.ColumnSpan="2"/>
+
+        <Label x:Name="ErrorMsg"
+               IsVisible="false"
+               TextColor="Red"
+               FontAttributes="Bold"
+               Padding="0, 10, 0, 0"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               Grid.Row="7"
+               Grid.ColumnSpan="2"/>
+    </Grid>
+</ContentPage>
