@@ -17,7 +17,9 @@
         <ShellContent ContentTemplate="{DataTemplate local:UserManagerPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Driver" Icon="steering_wheel.png"></FlyoutItem>
+    <FlyoutItem Title="Driver" Icon="steering_wheel.png">
+        <ShellContent ContentTemplate="{DataTemplate local:DriverPage}" />
+    </FlyoutItem>
 
     <FlyoutItem Title="Driver Manager" Icon="driver_manager.png"></FlyoutItem>
 </Shell>

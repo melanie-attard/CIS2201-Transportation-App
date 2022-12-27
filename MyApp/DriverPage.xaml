@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.DriverPage"
+             Title="Driver">
+
+    <Grid Padding="10" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto">
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Grid.Column="0"
+                Grid.Row="0">
+            <Entry Text="Enter ID..."
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"
+                   x:Name="driverEntry" />
+        </Border>
+
+        <Button x:Name="driverBtn"
+                Text="Enter"
+                Padding="20, 10"
+                FontSize="Medium"
+                Clicked="driverBtn_Clicked"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Grid.Row="0"
+                Grid.Column="1" />
+
+        <Label x:Name="ErrorMsg"
+               IsVisible="false"
+               TextColor="Red"
+               FontAttributes="Bold"
+               Padding="0, 10, 0, 0"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               Grid.Row="1"
+               Grid.ColumnSpan="2"/>
+
+        <Label Text="Assigned Route:"
+               Style="{StaticResource titleStyle}"
+               Padding="0, 30, 0, 10"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="2"
+               Grid.Column="0" />
+
+        <Label Text="null"
+               x:Name="Route"
+               FontSize="16"
+               Padding="0, 30, 0, 10"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="2"
+               Grid.Column="1" />
+
+        <Label Text="Assigned Bus:"
+               Style="{StaticResource titleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="3"
+               Grid.Column="0" />
+
+        <Label Text="null"
+               x:Name="busNum"
+               FontSize="16"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="3"
+               Grid.Column="1" />
+
+        <Label Text="Capacity:"
+               Style="{StaticResource titleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="4"
+               Grid.Column="0" />
+
+        <Label Text="null"
+               x:Name="Capacity"
+               FontSize="16"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="4"
+               Grid.Column="1" />
+
+        <Label Text="Disability Support:"
+               Style="{StaticResource titleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="5"
+               Grid.Column="0" />
+
+        <Label Text="null"
+               x:Name="DisabilitySupport"
+               FontSize="16"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="5"
+               Grid.Column="1" />
+
+        <Label Text="Assigned Schedule:"
+               Style="{StaticResource titleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="6"
+               Grid.Column="0" />
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Grid.Row="7" 
+                Grid.ColumnSpan="2">
+            <CollectionView x:Name="driverSchedule">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10, 20" ColumnDefinitions="2*, *, *, *, *, *, *" RowDefinitions="Auto">
+                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding Name}"  FontSize="16" />
+                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Time1}" FontSize="16" />
+                            <Label Grid.Column="2" Grid.Row="0" Text="{Binding Time2}" FontSize="16" />
+                            <Label Grid.Column="3" Grid.Row="0" Text="{Binding Time3}" FontSize="16" />
+                            <Label Grid.Column="4" Grid.Row="0" Text="{Binding Time4}" FontSize="16" />
+                            <Label Grid.Column="5" Grid.Row="0" Text="{Binding Time5}" FontSize="16" />
+                            <Label Grid.Column="6" Grid.Row="0" Text="{Binding Time6}" FontSize="16" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+
+        <Label Text="Stop:"
+               Style="{StaticResource titleStyle}"
+               Padding="0, 30, 0, 10"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               Grid.Row="8"
+               Grid.Column="0" />
+
+        <Label Text="OFF"
+               x:Name="stopSign"
+               FontSize="16"
+               FontAttributes="Bold"
+               TextColor="Red"
+               Padding="0, 30, 0, 10"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="8"
+               Grid.Column="1" />
+
+        <Button x:Name="resetStopBtn"
+                Text="Reset Stop"
+                Padding="20, 10"
+                Margin="0, 20"
+                FontSize="Medium"
+                Clicked="resetStopBtn_Clicked"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Grid.Row="9"
+                Grid.Column="0" />
+
+        <Button x:Name="endShiftBtn"
+                Text="End Shift"
+                Padding="20, 10"
+                FontSize="Medium"
+                Clicked="endShiftBtn_Clicked"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Grid.Row="9"
+                Grid.Column="1" />
+    </Grid>
+</ContentPage>
