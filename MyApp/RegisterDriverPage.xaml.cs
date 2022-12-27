@@ -43,5 +43,7 @@ public partial class RegisterDriverPage : ContentPage
 		};
 
 		// add driver to db
+		ErrorMsg.IsVisible = true;
+		ErrorMsg.Text = "Driver registered successfully!";
     }
 }

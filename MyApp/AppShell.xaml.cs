@@ -9,6 +9,7 @@
             Routing.RegisterRoute("stopDetails", typeof(StopDetailsPage));
             Routing.RegisterRoute("viewDrivers", typeof(ViewDriversPage));
             Routing.RegisterRoute("newDriver", typeof(RegisterDriverPage));
+            Routing.RegisterRoute("editDriver", typeof(EditDriverPage));
         }
     }
 }

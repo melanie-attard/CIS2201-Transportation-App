@@ -24,6 +24,6 @@ public partial class DriverManagerPage : ContentPage
 
     private async void editDriverBtn_Clicked(object sender, EventArgs e)
     {
-
+        await Shell.Current.GoToAsync("editDriver");
     }
 }

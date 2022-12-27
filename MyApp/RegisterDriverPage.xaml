@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyApp.RegisterDriverPage"
              Title="Register a Driver">
+    
     <Grid Padding="20" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto">
         <Label Text="ID:"
                Style="{StaticResource titleStyle}"
