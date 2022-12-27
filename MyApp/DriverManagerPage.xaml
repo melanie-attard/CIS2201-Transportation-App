@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.DriverManagerPage"
+             Title="Driver Manager">
+
+    <VerticalStackLayout Padding="20">
+        <Label 
+            Text="Assign Driver"
+            Style="{StaticResource titleStyle}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" />
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Margin="0, 10"
+                Padding="20, 0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start">
+            <Entry Placeholder="ID..."
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"
+                   x:Name="DriverId" />
+        </Border>
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Padding="20, 0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start">
+            <Entry Placeholder="Route ID..."
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"
+                   x:Name="RouteId" />
+        </Border>
+
+        <Button x:Name="assignBtn"
+                Text="Assign"
+                Padding="20, 10"
+                Margin="30, 0"
+                FontSize="Medium"
+                Clicked="assignBtn_Clicked"
+                VerticalOptions="Center"
+                HorizontalOptions="End" />
+
+        <Label x:Name="ErrorMsg"
+               IsVisible="false"
+               TextColor="Red"
+               FontAttributes="Bold"
+               Padding="0, 10, 0, 0"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+        <Button x:Name="viewDriversBtn"
+                Text="View Registered Drivers"
+                Margin="0, 40, 0, 10"
+                Padding="20, 10"
+                FontSize="Medium"
+                Clicked="viewDriversBtn_Clicked"
+                VerticalOptions="Center"
+                HorizontalOptions="Start" />
+
+        <Button x:Name="newDriverBtn"
+                Text="New Driver"
+                Margin="0, 10"
+                Padding="20, 10"
+                FontSize="Medium"
+                Clicked="newDriverBtn_Clicked"
+                VerticalOptions="Center"
+                HorizontalOptions="Start" />
+
+        <Button x:Name="editDriverBtn"
+                Text="Edit Driver"
+                Margin="0, 10"
+                Padding="20, 10"
+                FontSize="Medium"
+                Clicked="editDriverBtn_Clicked"
+                VerticalOptions="Center"
+                HorizontalOptions="Start" />
+    </VerticalStackLayout>
+</ContentPage>

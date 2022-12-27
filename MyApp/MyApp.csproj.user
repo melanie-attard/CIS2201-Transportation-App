@@ -14,6 +14,9 @@
     <MauiXaml Update="AppShell.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="DriverManagerPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="DriverPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -39,6 +42,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="UserPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="ViewDriversPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

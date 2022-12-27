@@ -10,7 +10,7 @@
                 StrokeShape="RoundRectangle"
                 Grid.Column="0"
                 Grid.Row="0">
-            <Entry Text="Enter ID..."
+            <Entry Placeholder="Enter ID..."
                    HorizontalTextAlignment="Center"
                    FontSize="16"
                    x:Name="driverEntry" />

@@ -22,6 +22,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyApp.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
+[C:/Repos/CIS2201-Transportation-App/MyApp/DriverManagerPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.DriverManagerPage.xaml
+build_metadata.AdditionalFiles.TargetPath = DriverManagerPage.xaml
+build_metadata.AdditionalFiles.RelativePath = DriverManagerPage.xaml
+
 [C:/Repos/CIS2201-Transportation-App/MyApp/DriverPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyApp.DriverPage.xaml
@@ -69,3 +75,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyApp.UserPage.xaml
 build_metadata.AdditionalFiles.TargetPath = UserPage.xaml
 build_metadata.AdditionalFiles.RelativePath = UserPage.xaml
+
+[C:/Repos/CIS2201-Transportation-App/MyApp/ViewDriversPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.ViewDriversPage.xaml
+build_metadata.AdditionalFiles.TargetPath = ViewDriversPage.xaml
+build_metadata.AdditionalFiles.RelativePath = ViewDriversPage.xaml
