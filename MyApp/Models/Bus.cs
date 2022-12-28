@@ -14,12 +14,12 @@ namespace MyApp.Models
         public bool Assigned { get; set; } = false;
 
         // navigational properties
-        [ForeignKey("route")]
+        [ForeignKey("Route"), Unique]
         public int RouteId { get; set; }
-        public Route route { get; set; }
+        public Route Route { get; set; }
 
-        [ForeignKey("driver")]
+        [ForeignKey("Driver"), Unique]
         public int DriverId { get; set; }
-        public Driver driver { get; set; }
+        public Driver Driver { get; set; }
     }
 }

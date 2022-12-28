@@ -5,12 +5,12 @@ namespace MyApp.Models
 {
     public class Schedule
     {
-        public TimeOnly Time1 { get; set; }
-        public TimeOnly Time2 { get; set; }
-        public TimeOnly Time3 { get; set; }
-        public TimeOnly Time4 { get; set; }
-        public TimeOnly Time5 { get; set; }
-        public TimeOnly Time6 { get; set; }
+        public DateTime? Time1 { get; set; }
+        public DateTime? Time2 { get; set; }
+        public DateTime? Time3 { get; set; }
+        public DateTime? Time4 { get; set; }
+        public DateTime? Time5 { get; set; }
+        public DateTime? Time6 { get; set; }
 
         // navigational properties
         [ForeignKey("route"), NotNull]

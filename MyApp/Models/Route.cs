@@ -4,6 +4,11 @@ namespace MyApp.Models
 {
     public class Route
     {
+        public Route() 
+        {
+            Schedules= new List<Schedule>();
+        }
+
         [PrimaryKey, Unique, NotNull]
         public int Id { get; set; }
 

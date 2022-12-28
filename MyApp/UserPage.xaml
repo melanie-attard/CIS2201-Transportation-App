@@ -21,8 +21,9 @@
             </Setter>
         </Style>
     </ContentPage.Resources>
-    
-    <VerticalStackLayout Padding="20">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
         <Label 
             Text="Buses Used"
             Style="{StaticResource titleStyle}"/>
@@ -30,11 +31,15 @@
         <CollectionView x:Name="busSummary">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10, 20" ColumnDefinitions="*, 2*">
-                        <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
-                        <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
-                    </Grid>
-                </DataTemplate>
+                        <Border Stroke="black"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle">
+                            <Grid Padding="10, 20" ColumnDefinitions="*, 2*">
+                                <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
+                                <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
@@ -43,38 +48,38 @@
             Style="{StaticResource titleStyle}" />
 
         <!-- retrieved from https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/border?view=net-maui-7.0#create-a-border -->
-        <Border Stroke="black"
-                StrokeThickness="1"
-                StrokeShape="RoundRectangle">
-            <CollectionView x:Name="routeList" SelectionMode="Single" SelectionChanged="routeList_SelectionChanged">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
+        <CollectionView x:Name="routeList" SelectionMode="Single" SelectionChanged="routeList_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="black"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle">
                         <Grid Padding="10, 20" ColumnDefinitions="*, 2*">
                             <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
                             <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
                         </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Border>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
         <Label 
             Text="Bus Stops"
             Style="{StaticResource titleStyle}"/>
 
-        <Border Stroke="black"
-                StrokeThickness="1"
-                StrokeShape="RoundRectangle">
             <CollectionView x:Name="stopsList" SelectionMode="Single" SelectionChanged="stopsList_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10, 20" RowDefinitions="*">
-                            <Label Text="{Binding Name}" FontSize="18" HorizontalOptions="Center" Grid.Row="0" />
-                        </Grid>
+                        <Border Stroke="black"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle">
+                            <Grid Padding="10, 20" RowDefinitions="*">
+                                <Label Text="{Binding Name}" FontSize="18" HorizontalOptions="Center" Grid.Row="0" />
+                            </Grid>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </Border>
-    </VerticalStackLayout>
-  
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

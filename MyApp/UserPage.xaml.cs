@@ -4,34 +4,19 @@ namespace MyApp;
 
 public partial class UserPage : ContentPage
 {
-    List<Route> routes;
-    List<BusStop> busStops;
     public UserPage()
     {
         InitializeComponent();
+        UpdateUI(); 
+    }
 
-        routes = new List<Route>() 
-        {
-            new Route()
-            {
-                Id = 51,
-                Name = "Mtarfa-Valletta"
-            }
-        };
-
-        busStops= new List<BusStop>()
-        {
-            new BusStop()
-            {
-                Id= 1,
-                Name = "Dumnikani",
-                Latitude = 1234,
-                Longitude = 9876
-            }
-        };
-
-        busSummary.ItemsSource = routes;
+    private async void UpdateUI()
+    {
+        //busSummary.ItemsSource = routes;
+        List<Route> routes = await App.AppRepo.GetAllRoutes();
         routeList.ItemsSource = routes;
+
+        List<BusStop> busStops = await App.AppRepo.GetAllStops();
         stopsList.ItemsSource = busStops;
     }
 
