@@ -19,6 +19,6 @@ namespace MyApp.Models
         public bool Assigned { get; set; }
 
         // navigational property
-        public Bus Bus { get; set; }
+        //public Bus Bus { get; set; }
     }
 }

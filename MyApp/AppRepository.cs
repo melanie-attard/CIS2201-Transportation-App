@@ -1,7 +1,5 @@
 ﻿using MyApp.Models;
 using SQLite;
-using System.IO;
-using System.Xml.Linq;
 
 namespace MyApp
 {
@@ -10,7 +8,7 @@ namespace MyApp
         // variable for sqlite connection
         private readonly SQLiteAsyncConnection conn;
         public static string DBpath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "data.db3");
-        public string StatusMessage { get; set; }
+        public string StatusMessage { get; set; } // mostly for debugging purposes
         public bool Stop { get; set; } = false;
 
         //private void Init()
@@ -91,6 +89,34 @@ namespace MyApp
                 StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
             }
             return new Bus();
+        }
+
+        public async Task UpdateDriverAsync(Driver driver)
+        {
+            int result;
+            try
+            {
+                result = await conn.UpdateAsync(driver);
+                StatusMessage = string.Format("{0} record(s) updated.", result);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to update driver. Error: {0}", ex.Message);
+            }
+        }
+
+        public async Task UpdateBusAsync(Bus bus)
+        {
+            int result;
+            try
+            {
+                result = await conn.UpdateAsync(bus);
+                StatusMessage = string.Format("{0} record(s) updated.", result);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to update bus. Error: {0}", ex.Message);
+            }
         }
     }
 }

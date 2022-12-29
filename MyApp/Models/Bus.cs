@@ -18,10 +18,8 @@ namespace MyApp.Models
         // navigational properties
         [ForeignKey("Route"), Unique]
         public int RouteId { get; set; }
-        public Route Route { get; set; }
 
         [ForeignKey("Driver"), Unique]
         public int DriverId { get; set; }
-        public Driver Driver { get; set; }
     }
 }

@@ -4,10 +4,10 @@ namespace MyApp.Models
 {
     public class Route
     {
-        public Route() 
-        {
-            Schedules= new List<Schedule>();
-        }
+        //public Route() 
+        //{
+        //    Schedules= new List<Schedule>();
+        //}
 
         [PrimaryKey, Unique, NotNull]
         public int Id { get; set; }
@@ -16,7 +16,7 @@ namespace MyApp.Models
         public string Name { get; set; }
 
         // navigational properties
-        public Bus Bus { get; set; }
-        public ICollection<Schedule> Schedules { get; set; }
+        //public Bus Bus { get; set; }
+        //public ICollection<Schedule> Schedules { get; set; }
     }
 }

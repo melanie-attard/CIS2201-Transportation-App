@@ -5,6 +5,8 @@ namespace MyApp;
 public partial class DriverPage : ContentPage
 {
     bool driverFound = false;
+    Driver driver;
+    Bus bus;
 	public DriverPage()
 	{
 		InitializeComponent();
@@ -20,7 +22,7 @@ public partial class DriverPage : ContentPage
     {
 		int driverId = Convert.ToInt32(driverEntry.Text);
         // load driver from database
-        Driver driver = await App.AppRepo.GetDriverById(driverId);
+        driver = await App.AppRepo.GetDriverById(driverId);
 
         if(driver is not null)
         {
@@ -29,7 +31,7 @@ public partial class DriverPage : ContentPage
             {              
                 if(ErrorMsg.IsVisible == true) { ErrorMsg.IsVisible = false; }
                 // load assigned bus and update UI
-                Bus bus = await App.AppRepo.GetBusByDriver(driverId);
+                bus = await App.AppRepo.GetBusByDriver(driverId);
                 if(bus is not null)
                 {
                     Route.Text = bus.RouteId.ToString();
@@ -68,7 +70,7 @@ public partial class DriverPage : ContentPage
         }
     }
 
-    private void endShiftBtn_Clicked(object sender, EventArgs e)
+    private async void endShiftBtn_Clicked(object sender, EventArgs e)
     {
         if(driverFound == true)
         {
@@ -81,7 +83,14 @@ public partial class DriverPage : ContentPage
             stopSign.Text = "OFF";
             driverFound = false;
         }
+
         // set driver's assigned bool to false
+        driver.Assigned = false;
+        await App.AppRepo.UpdateDriverAsync(driver);
+
         // reset bus's driverId and assigned bool
+        bus.Assigned = false;
+        bus.DriverId = 0;
+        await App.AppRepo.UpdateBusAsync(bus);
     }
 }

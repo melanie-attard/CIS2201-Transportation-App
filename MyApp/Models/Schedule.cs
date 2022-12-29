@@ -15,10 +15,10 @@ namespace MyApp.Models
         // navigational properties
         [ForeignKey("route"), NotNull]
         public int RouteId { get; set; }
-        public Route route { get; set; }
+        //public Route route { get; set; }
 
         [ForeignKey("busStop"), NotNull]
         public int StopId { get; set; }
-        public BusStop busStop { get; set; }
+        //public BusStop busStop { get; set; }
     }
 }
