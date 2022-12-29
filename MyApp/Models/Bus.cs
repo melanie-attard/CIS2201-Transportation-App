@@ -11,7 +11,9 @@ namespace MyApp.Models
         [NotNull]
         public int Capacity { get; set; }
 
-        public bool Assigned { get; set; } = false;
+        public bool DisabilitySupport { get; set; }
+
+        public bool Assigned { get; set; }
 
         // navigational properties
         [ForeignKey("Route"), Unique]

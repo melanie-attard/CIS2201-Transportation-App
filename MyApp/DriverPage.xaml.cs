@@ -4,30 +4,46 @@ namespace MyApp;
 
 public partial class DriverPage : ContentPage
 {
-    Driver driver = new()
-    {
-        Id = 1,
-        Name= "Test",
-        Assigned = false
-    };
-
     bool driverFound = false;
 	public DriverPage()
 	{
 		InitializeComponent();
+
+        bool stop = App.AppRepo.Stop;
+        if(stop == true)
+        {
+            stopSign.Text = "ON";
+        }
 	}
 
-    private void driverBtn_Clicked(object sender, EventArgs e)
+    private async void driverBtn_Clicked(object sender, EventArgs e)
     {
 		int driverId = Convert.ToInt32(driverEntry.Text);
         // load driver from database
-        if(driverId == driver.Id)
+        Driver driver = await App.AppRepo.GetDriverById(driverId);
+
+        if(driver is not null)
         {
             driverFound= true;
             if(driver.Assigned == true)
-            {
-                // load assigned bus
+            {              
                 if(ErrorMsg.IsVisible == true) { ErrorMsg.IsVisible = false; }
+                // load assigned bus and update UI
+                Bus bus = await App.AppRepo.GetBusByDriver(driverId);
+                if(bus is not null)
+                {
+                    Route.Text = bus.RouteId.ToString();
+                    busNum.Text = bus.BusId.ToString();
+                    Capacity.Text = bus.Capacity.ToString();
+                    if(bus.DisabilitySupport == true) 
+                    {
+                        DisabilitySupport.Text = "Yes";
+                    }
+                    else
+                    {
+                        DisabilitySupport.Text = "No";
+                    }
+                }
             }
             else
             {
@@ -48,9 +64,8 @@ public partial class DriverPage : ContentPage
         if(stopSign.Text == "ON")
         {
             stopSign.Text = "OFF";
+            App.AppRepo.Stop = false;
         }
-
-        // if stop variable is true, set to false
     }
 
     private void endShiftBtn_Clicked(object sender, EventArgs e)

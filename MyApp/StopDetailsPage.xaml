@@ -11,17 +11,16 @@
             Grid.Column="0"
             Grid.Row="0"
             VerticalOptions="Center" 
-            HorizontalOptions="Start" />
+            HorizontalOptions="Center" />
 
         <Label 
             x:Name="stopId"
             FontSize="16"
             Padding="5"
-            TextDecorations="Underline"
             Grid.Column="1"
             Grid.Row="0"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Start" />
 
         <Label 
             Text="Location: "
@@ -30,17 +29,16 @@
             Grid.Column="0"
             Grid.Row="1"
             VerticalOptions="Center" 
-            HorizontalOptions="Start" />
+            HorizontalOptions="Center" />
 
         <Label 
             x:Name="location"
             FontSize="16"
             Padding="5"
-            TextDecorations="Underline"
             Grid.Column="1"
             Grid.Row="1"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Start" />
 
         <Label 
             Text="Routes and Schedules"
@@ -76,21 +74,20 @@
             VerticalOptions="Center" 
             HorizontalOptions="Start" />
 
-        <Border Stroke="black"
-                StrokeThickness="1"
-                StrokeShape="RoundRectangle"
-                Grid.Row="5" 
-                Grid.ColumnSpan="2">
+        
             <!-- inspired by https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/layout?view=net-maui-7.0#horizontal-list -->
-            <CollectionView x:Name="closestList" ItemsLayout="HorizontalList">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
+        <CollectionView x:Name="closestList" ItemsLayout="HorizontalList" Grid.Row="5" Grid.ColumnSpan="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="black"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle">
                         <VerticalStackLayout>
                             <Label Text="{Binding RouteId}" FontSize="16" HorizontalOptions="Center" BackgroundColor="Aqua" />
                         </VerticalStackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Border>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </Grid>
 </ContentPage>

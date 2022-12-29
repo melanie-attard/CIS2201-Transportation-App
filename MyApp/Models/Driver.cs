@@ -16,7 +16,7 @@ namespace MyApp.Models
 
         public int? PhoneNo { get; set; }
         public string? Address { get; set; }
-        public bool Assigned { get; set; } = false;
+        public bool Assigned { get; set; }
 
         // navigational property
         public Bus Bus { get; set; }
