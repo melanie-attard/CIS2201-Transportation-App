@@ -119,6 +119,19 @@ namespace MyApp
             return new List<Schedule>();
         }
 
+        public async Task<List<Schedule>> GetScheduleByStop(int stopId)
+        {
+            try
+            {
+                return await conn.Table<Schedule>().Where(schedule => schedule.StopId == stopId).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
+            }
+            return new List<Schedule>();
+        }
+
         public async Task UpdateDriverAsync(Driver driver)
         {
             int result;

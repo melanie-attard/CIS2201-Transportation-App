@@ -21,7 +21,7 @@ public partial class StopDetailsPage : ContentPage
 		InitializeComponent();
 	}
 
-    async void UpdateUI(string stopName)
+    private async void UpdateUI(string stopName)
     {
         Title = stopName;
         BusStop stop = await App.AppRepo.GetStopByName(stopName);
@@ -30,9 +30,11 @@ public partial class StopDetailsPage : ContentPage
             stopId.Text = stop.Id.ToString();
             location.Text = stop.Longitude + "  " + stop.Latitude;
         }
+
+        List<Schedule> schedules = await App.AppRepo.GetScheduleByStop(stop.Id);
+        timetable.ItemsSource = schedules;
     }
 
     // To do:
-    // List<Schedule> containing routes passing from this stop
     // List<Schedule> ordered by time1, for closest list
 }

@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyApp.StopDetailsPage">
 
-    <Grid Padding="10, 10" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
-        <Label 
+    <ScrollView>
+        <Grid Padding="10, 10" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
+            <Label 
             Text="Stop ID: "
             FontSize="16"
             Padding="5"
@@ -13,7 +14,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <Label 
+            <Label 
             x:Name="stopId"
             FontSize="16"
             Padding="5"
@@ -22,7 +23,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Start" />
 
-        <Label 
+            <Label 
             Text="Location: "
             FontSize="16"
             Padding="5"
@@ -31,7 +32,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <Label 
+            <Label 
             x:Name="location"
             FontSize="16"
             Padding="5"
@@ -40,7 +41,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Start" />
 
-        <Label 
+            <Label 
             Text="Routes and Schedules"
             Style="{StaticResource titleStyle}"
             FontSize="16"
@@ -49,23 +50,31 @@
             VerticalOptions="Center" 
             HorizontalOptions="Start" />
 
-        <CollectionView x:Name="timetable" Grid.Row="3" Grid.ColumnSpan="2">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="10, 20" ColumnDefinitions="*, 3*" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
-                        <Label Grid.Column="0" Grid.Row="0"  Text="{Binding RouteId}" FontSize="16" />
-                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Time1}" FontSize="16" />
-                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding Time2}" FontSize="16" />
-                        <Label Grid.Column="1" Grid.Row="2" Text="{Binding Time3}" FontSize="16" />
-                        <Label Grid.Column="1" Grid.Row="3" Text="{Binding Time4}" FontSize="16" />
-                        <Label Grid.Column="1" Grid.Row="4" Text="{Binding Time5}" FontSize="16" />
-                        <Label Grid.Column="1" Grid.Row="5" Text="{Binding Time6}" FontSize="16" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            <CollectionView x:Name="timetable" Grid.Row="3" Grid.ColumnSpan="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10, 10" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
+                            <Border Stroke="black"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle"
+                                BackgroundColor="LightCoral"
+                                Grid.Column="0" 
+                                Grid.Row="0"
+                                Margin="20, 0">
+                                <Label Text="{Binding RouteId}" FontSize="16" HorizontalOptions="Center" Padding="0, 3"/>
+                            </Border>
+                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Time1}" FontSize="16" Padding="0, 3"/>
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Time2}" FontSize="16" Padding="0, 3" />
+                            <Label Grid.Column="1" Grid.Row="2" Text="{Binding Time3}" FontSize="16" Padding="0, 3"/>
+                            <Label Grid.Column="1" Grid.Row="3" Text="{Binding Time4}" FontSize="16" Padding="0, 3"/>
+                            <Label Grid.Column="1" Grid.Row="4" Text="{Binding Time5}" FontSize="16" Padding="0, 3"/>
+                            <Label Grid.Column="1" Grid.Row="5" Text="{Binding Time6}" FontSize="16" Padding="0, 3"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Label 
+            <Label 
             Text="View Closest Buses"
             Style="{StaticResource titleStyle}"
             FontSize="16"
@@ -74,20 +83,21 @@
             VerticalOptions="Center" 
             HorizontalOptions="Start" />
 
-        
+
             <!-- inspired by https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/layout?view=net-maui-7.0#horizontal-list -->
-        <CollectionView x:Name="closestList" ItemsLayout="HorizontalList" Grid.Row="5" Grid.ColumnSpan="2">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border Stroke="black"
+            <CollectionView x:Name="closestList" ItemsLayout="HorizontalList" Grid.Row="5" Grid.ColumnSpan="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="black"
                             StrokeThickness="1"
                             StrokeShape="RoundRectangle">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding RouteId}" FontSize="16" HorizontalOptions="Center" BackgroundColor="Aqua" />
-                        </VerticalStackLayout>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </Grid>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding RouteId}" FontSize="16" HorizontalOptions="Center" BackgroundColor="Aqua" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
 </ContentPage>
