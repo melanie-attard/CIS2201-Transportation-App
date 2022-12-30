@@ -12,11 +12,11 @@ public partial class DriverPage : ContentPage
 		InitializeComponent();
 
         bool stop = App.AppRepo.Stop;
-        if(stop == true)
+        if (stop == true)
         {
             stopSign.Text = "ON";
         }
-	}
+    }
 
     private async void driverBtn_Clicked(object sender, EventArgs e)
     {
@@ -45,6 +45,9 @@ public partial class DriverPage : ContentPage
                     {
                         DisabilitySupport.Text = "No";
                     }
+
+                    List<Schedule> schedule = await App.AppRepo.GetScheduleByRoute(bus.RouteId);
+                    driverSchedule.ItemsSource = schedule;
                 }
             }
             else

@@ -11,13 +11,15 @@ namespace MyApp
         public string StatusMessage { get; set; } // mostly for debugging purposes
         public bool Stop { get; set; } = false;
 
-        //private void Init()
+        //private async Task Init()
         //{
         //    if (conn != null)
         //    {
         //        return;
         //    }
-        //    conn = new SQLiteAsyncConnection(_DBpath);
+        //    conn = new SQLiteAsyncConnection(DBpath);
+        //    await conn.CreateTableAsync<Driver>();
+        //    await conn.CreateTableAsync<Bus>();
         //}
 
         public AppRepository()
@@ -50,6 +52,19 @@ namespace MyApp
                 StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
             }
             return new List<BusStop>();
+        }
+
+        public async Task<List<Driver>> GetAllDrivers()
+        {
+            try
+            {
+                return await conn.Table<Driver>().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
+            }
+            return new List<Driver>();
         }
 
         public async Task<BusStop> GetStopByName(string name)
@@ -89,6 +104,19 @@ namespace MyApp
                 StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
             }
             return new Bus();
+        }
+
+        public async Task<List<Schedule>> GetScheduleByRoute(int routeId)
+        {
+            try
+            {
+                return await conn.Table<Schedule>().Where(schedule => schedule.RouteId == routeId).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
+            }
+            return new List<Schedule>();
         }
 
         public async Task UpdateDriverAsync(Driver driver)
