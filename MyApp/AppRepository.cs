@@ -10,6 +10,7 @@ namespace MyApp
         public static string DBpath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "data.db3");
         public string StatusMessage { get; set; } // mostly for debugging purposes
         public bool Stop { get; set; } = false;
+        public UserManager manager { get; set; }
 
         //private async Task Init()
         //{
@@ -25,6 +26,7 @@ namespace MyApp
         public AppRepository()
         {
             conn = new SQLiteAsyncConnection(DBpath);
+            manager = new UserManager();
         }
 
         public async Task<List<Route>> GetAllRoutes()
