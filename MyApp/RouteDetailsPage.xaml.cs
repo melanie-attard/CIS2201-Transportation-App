@@ -1,3 +1,5 @@
+using MyApp.Models;
+
 namespace MyApp;
 
 [QueryProperty(nameof(RouteId), "routeId")]
@@ -20,9 +22,11 @@ public partial class RouteDetailsPage : ContentPage
 		InitializeComponent();
 	}
 
-	void UpdateUI(int routeId)
+	private async void UpdateUI(int routeId)
 	{
 		Title = "Route " + routeId;
+		List<Schedule> schedules = await App.AppRepo.GetScheduleByRoute(routeId);
+		routeSchedule.ItemsSource = schedules;
 	}
 
     private void EnterBusClicked(object sender, EventArgs e)
@@ -33,7 +37,9 @@ public partial class RouteDetailsPage : ContentPage
 
     private async void StopClicked(object sender, EventArgs e)
     {
-        // set stop variable to true
+		// set stop variable to true
+		App.AppRepo.Stop = true;
+
 		// reset paid boolean to false
 
         // retrieved from https://lalorosas.com/blog/shell-routing
