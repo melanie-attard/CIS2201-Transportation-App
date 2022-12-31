@@ -4,12 +4,13 @@
     {
         public UserManager() 
         {
-            paid = false;
+            Paid = false;
+            BusesUsed = new List<Route>();
         }
 
-        public override void EnterBus(Bus bus)
+        public override void EnterBus(Route route)
         {
-            busesUsed.Add(bus);
+            BusesUsed.Add(route);
         }
     }
 }

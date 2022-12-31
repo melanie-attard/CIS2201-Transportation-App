@@ -9,6 +9,6 @@ public partial class UserManagerPage : ContentPage
 
     private void payBtn_Clicked(object sender, EventArgs e)
     {
-		// set paid boolean to true
+		App.AppRepo.manager.Paid = true;
     }
 }

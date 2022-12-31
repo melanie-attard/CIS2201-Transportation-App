@@ -12,12 +12,13 @@ public partial class UserPage : ContentPage
 
     private async void UpdateUI()
     {
-        //busSummary.ItemsSource = routes;
-        List<Route> routes = await App.AppRepo.GetAllRoutes();
-        routeList.ItemsSource = routes;
+        busSummary.ItemsSource = App.AppRepo.manager.BusesUsed;
 
+        List<Route> routes = await App.AppRepo.GetAllRoutes();
+        if(routes != null) { routeList.ItemsSource = routes; }
+        
         List<BusStop> busStops = await App.AppRepo.GetAllStops();
-        stopsList.ItemsSource = busStops;
+        if (busStops != null) { stopsList.ItemsSource = busStops; }
     }
 
     private async void routeList_SelectionChanged(object sender, SelectionChangedEventArgs e)

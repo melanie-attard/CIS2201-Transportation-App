@@ -10,6 +10,7 @@ public partial class DriverManagerPage : ContentPage
     private void assignBtn_Clicked(object sender, EventArgs e)
     {
         // check whether driver Id and route Id exist
+        // check that both are not already assigned
     }
 
     private async void viewDriversBtn_Clicked(object sender, EventArgs e)

@@ -26,7 +26,7 @@ public partial class RouteDetailsPage : ContentPage
 	{
 		Title = "Route " + routeId;
 		List<Schedule> schedules = await App.AppRepo.GetScheduleByRoute(routeId);
-		routeSchedule.ItemsSource = schedules;
+		if (schedules != null) { routeSchedule.ItemsSource = schedules; }
 	}
 
     private void EnterBusClicked(object sender, EventArgs e)

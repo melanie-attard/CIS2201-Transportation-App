@@ -10,12 +10,6 @@ public partial class DriverPage : ContentPage
 	public DriverPage()
 	{
 		InitializeComponent();
-
-        bool stop = App.AppRepo.Stop;
-        if (stop == true)
-        {
-            stopSign.Text = "ON";
-        }
     }
 
     private async void driverBtn_Clicked(object sender, EventArgs e)
@@ -24,7 +18,7 @@ public partial class DriverPage : ContentPage
         // load driver from database
         driver = await App.AppRepo.GetDriverById(driverId);
 
-        if(driver is not null)
+        if(driver != null)
         {
             driverFound= true;
             if(driver.Assigned == true)
@@ -32,7 +26,7 @@ public partial class DriverPage : ContentPage
                 if(ErrorMsg.IsVisible == true) { ErrorMsg.IsVisible = false; }
                 // load assigned bus and update UI
                 bus = await App.AppRepo.GetBusByDriver(driverId);
-                if(bus is not null)
+                if(bus != null)
                 {
                     Route.Text = bus.RouteId.ToString();
                     busNum.Text = bus.BusId.ToString();
@@ -44,6 +38,11 @@ public partial class DriverPage : ContentPage
                     else
                     {
                         DisabilitySupport.Text = "No";
+                    }
+
+                    if (App.AppRepo.Stop == true)
+                    {
+                        stopSign.Text = "ON";
                     }
 
                     List<Schedule> schedule = await App.AppRepo.GetScheduleByRoute(bus.RouteId);
@@ -85,15 +84,15 @@ public partial class DriverPage : ContentPage
             driverSchedule.ItemsSource = null;
             stopSign.Text = "OFF";
             driverFound = false;
+
+            // set driver's assigned bool to false
+            driver.Assigned = false;
+            await App.AppRepo.UpdateDriverAsync(driver);
+
+            // reset bus's driverId and assigned bool
+            bus.Assigned = false;
+            bus.DriverId = 0;
+            await App.AppRepo.UpdateBusAsync(bus);
         }
-
-        // set driver's assigned bool to false
-        driver.Assigned = false;
-        await App.AppRepo.UpdateDriverAsync(driver);
-
-        // reset bus's driverId and assigned bool
-        bus.Assigned = false;
-        bus.DriverId = 0;
-        await App.AppRepo.UpdateBusAsync(bus);
     }
 }

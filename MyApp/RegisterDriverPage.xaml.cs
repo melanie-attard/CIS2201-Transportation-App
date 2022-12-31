@@ -4,7 +4,7 @@ namespace MyApp;
 
 public partial class RegisterDriverPage : ContentPage
 {
-	List<Driver> drivers = new List<Driver>(); //existing drivers in db
+	List<Driver> drivers; //existing drivers in db
 	public RegisterDriverPage()
 	{
 		InitializeComponent();

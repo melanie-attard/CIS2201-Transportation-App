@@ -32,7 +32,7 @@ public partial class StopDetailsPage : ContentPage
         }
 
         List<Schedule> schedules = await App.AppRepo.GetScheduleByStop(stop.Id);
-        timetable.ItemsSource = schedules;
+        if (schedules != null) { timetable.ItemsSource = schedules; }
     }
 
     // To do:

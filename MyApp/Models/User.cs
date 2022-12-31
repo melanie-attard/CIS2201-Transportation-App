@@ -2,8 +2,8 @@
 {
     public abstract class User
     {
-        public List<Bus> busesUsed { get; set; }
-        public bool paid { get; set; }
-        public abstract void EnterBus(Bus bus);
+        public List<Route> BusesUsed { get; set; }
+        public bool Paid { get; set; }
+        public abstract void EnterBus(Route route);
     }
 }
