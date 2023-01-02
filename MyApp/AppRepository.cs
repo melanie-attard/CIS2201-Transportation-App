@@ -95,6 +95,19 @@ namespace MyApp
             return new Driver();
         }
 
+        public async Task<Route> GetRouteById(int id)
+        {
+            try
+            {
+                return await conn.Table<Route>().Where(route => route.Id == id).FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
+            }
+            return new Route();
+        }
+
         public async Task<Bus> GetBusByDriver(int driverId)
         {
             try

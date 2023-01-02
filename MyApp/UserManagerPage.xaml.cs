@@ -9,6 +9,11 @@ public partial class UserManagerPage : ContentPage
 
     private void payBtn_Clicked(object sender, EventArgs e)
     {
-		App.AppRepo.manager.Paid = true;
+		if(App.AppRepo.manager.Paid == false)
+		{
+            App.AppRepo.manager.Paid = true;
+			paymentStats.Text = "PAID";
+        }
+		
     }
 }

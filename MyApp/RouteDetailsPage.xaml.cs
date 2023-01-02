@@ -25,14 +25,31 @@ public partial class RouteDetailsPage : ContentPage
 	private async void UpdateUI(int routeId)
 	{
 		Title = "Route " + routeId;
+
 		List<Schedule> schedules = await App.AppRepo.GetScheduleByRoute(routeId);
 		if (schedules != null) { routeSchedule.ItemsSource = schedules; }
+
+		if(App.AppRepo.manager.Paid == true)
+		{
+			paymentStats.Text = "PAID";
+		}
 	}
 
-    private void EnterBusClicked(object sender, EventArgs e)
+    private async void EnterBusClicked(object sender, EventArgs e)
     {
-		// verify that user is set to paid
-		// add route instance to summary list
+		// verify that user has paid
+		if(App.AppRepo.manager.Paid == true)
+		{
+            // add route instance to summary list
+			Route currentRoute = await App.AppRepo.GetRouteById(RouteId); 
+			if (currentRoute != null) { App.AppRepo.manager.EnterBus(currentRoute); }
+		}
+		else
+		{
+			ErrorMsg.IsVisible = true;
+			ErrorMsg.Text = "You must pay before entering the bus!";
+		}
+
     }
 
     private async void StopClicked(object sender, EventArgs e)
