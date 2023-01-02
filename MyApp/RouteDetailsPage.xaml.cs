@@ -43,7 +43,10 @@ public partial class RouteDetailsPage : ContentPage
             // add route instance to summary list
 			Route currentRoute = await App.AppRepo.GetRouteById(RouteId); 
 			if (currentRoute != null) { App.AppRepo.manager.EnterBus(currentRoute); }
-		}
+
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = "You are now on the bus.";
+        }
 		else
 		{
 			ErrorMsg.IsVisible = true;
@@ -58,6 +61,7 @@ public partial class RouteDetailsPage : ContentPage
 		App.AppRepo.Stop = true;
 
 		// reset paid boolean to false
+		App.AppRepo.manager.Paid = false;
 
         // retrieved from https://lalorosas.com/blog/shell-routing
         await Shell.Current.Navigation.PopAsync();
