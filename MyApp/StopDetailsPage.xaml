@@ -75,7 +75,7 @@
             </CollectionView>
 
             <Label 
-            Text="View Closest Buses"
+            Text="Closest Buses"
             Style="{StaticResource titleStyle}"
             FontSize="16"
             Grid.Column="0"
@@ -89,10 +89,15 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border Stroke="black"
-                            StrokeThickness="1"
-                            StrokeShape="RoundRectangle">
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle"
+                                Margin="2">
                             <VerticalStackLayout>
-                                <Label Text="{Binding RouteId}" FontSize="16" HorizontalOptions="Center" BackgroundColor="Aqua" />
+                                <Label Text="{Binding route}" 
+                                       FontSize="16" 
+                                       Padding="5"
+                                       HorizontalOptions="Center" 
+                                       BackgroundColor="Aqua" />
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>

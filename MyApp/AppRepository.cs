@@ -36,7 +36,7 @@ namespace MyApp
                 //Init();
                 return await conn.Table<Route>().ToListAsync();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
             }
@@ -49,7 +49,7 @@ namespace MyApp
             {
                 return await conn.Table<BusStop>().ToListAsync();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
             }
@@ -147,6 +147,25 @@ namespace MyApp
             return new List<Schedule>();
         }
 
+        public async Task<List<Temp>> GetClosestBuses(int stopID)
+        {
+            List<Schedule> schedules = await GetScheduleByStop(stopID);
+            List<Temp> closest = new();
+            foreach (Schedule schedule in schedules)
+            {
+                //changing time1 to DateTime
+                Temp temp = new() { route = schedule.RouteId, time = Convert.ToDateTime(schedule.Time1) };
+                closest.Add(temp);
+            }
+
+            if (closest.Count > 1)
+            {
+                // order by time
+                return closest.OrderBy(a => a.time).ToList();
+            }
+            return closest;
+        }
+
         public async Task UpdateDriverAsync(Driver driver)
         {
             int result;
@@ -173,6 +192,12 @@ namespace MyApp
             {
                 StatusMessage = string.Format("Failed to update bus. Error: {0}", ex.Message);
             }
+        }
+
+        // to be used in getClosest()
+        public class Temp{
+            public int route { get; set; }
+            public DateTime time { get; set; }
         }
     }
 }

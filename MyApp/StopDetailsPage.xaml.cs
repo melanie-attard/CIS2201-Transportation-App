@@ -1,4 +1,5 @@
 using MyApp.Models;
+using static MyApp.AppRepository;
 
 namespace MyApp;
 
@@ -33,8 +34,8 @@ public partial class StopDetailsPage : ContentPage
 
         List<Schedule> schedules = await App.AppRepo.GetScheduleByStop(stop.Id);
         if (schedules != null) { timetable.ItemsSource = schedules; }
-    }
 
-    // To do:
-    // List<Schedule> ordered by time1, for closest list
+        List<Temp> closest = await App.AppRepo.GetClosestBuses(stop.Id);
+        if (closest != null) { closestList.ItemsSource = closest; }
+    }
 }
