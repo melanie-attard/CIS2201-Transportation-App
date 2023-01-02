@@ -27,9 +27,20 @@ public partial class RouteDetailsPage : ContentPage
 		Title = "Route " + routeId;
 
 		List<Schedule> schedules = await App.AppRepo.GetScheduleByRoute(routeId);
-		if (schedules != null) { routeSchedule.ItemsSource = schedules; }
+        List<BusStop> stops = await App.AppRepo.GetAllStops();
+        var combined = schedules.Join(stops, s1 => s1.StopId, s2 => s2.Id, (schedules, stops) => new
+        {
+            stops.Name,
+            schedules.Time1,
+            schedules.Time2,
+            schedules.Time3,
+            schedules.Time4,
+            schedules.Time5,
+            schedules.Time6
+        }).ToList();
+		routeSchedule.ItemsSource = combined;
 
-		if(App.AppRepo.manager.Paid == true)
+        if (App.AppRepo.manager.Paid == true)
 		{
 			paymentStats.Text = "PAID";
 		}

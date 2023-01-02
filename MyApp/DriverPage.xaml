@@ -115,8 +115,8 @@
                 <CollectionView x:Name="driverSchedule">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="10, 20" ColumnDefinitions="*, *, *, *, *, *, *" RowDefinitions="Auto">
-                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding StopId}"  FontSize="16" />
+                            <Grid Padding="10, 20" ColumnDefinitions="2*, *, *, *, *, *, *" RowDefinitions="Auto">
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding Name}"  FontSize="16" />
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding Time1}" FontSize="16" />
                                 <Label Grid.Column="2" Grid.Row="0" Text="{Binding Time2}" FontSize="16" />
                                 <Label Grid.Column="3" Grid.Row="0" Text="{Binding Time3}" FontSize="16" />

@@ -45,8 +45,19 @@ public partial class DriverPage : ContentPage
                         stopSign.Text = "ON";
                     }
 
-                    List<Schedule> schedule = await App.AppRepo.GetScheduleByRoute(bus.RouteId);
-                    driverSchedule.ItemsSource = schedule;
+                    List<Schedule> schedules = await App.AppRepo.GetScheduleByRoute(bus.RouteId);
+                    List<BusStop> stops = await App.AppRepo.GetAllStops();
+                    var combined = schedules.Join(stops, s1 => s1.StopId, s2 => s2.Id, (schedules, stops) => new
+                    {
+                        stops.Name,
+                        schedules.Time1,
+                        schedules.Time2,
+                        schedules.Time3,
+                        schedules.Time4,
+                        schedules.Time5,
+                        schedules.Time6
+                    }).ToList();
+                    driverSchedule.ItemsSource = combined;
                 }
             }
             else
