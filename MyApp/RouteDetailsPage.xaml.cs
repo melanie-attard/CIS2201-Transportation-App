@@ -6,6 +6,7 @@ namespace MyApp;
 public partial class RouteDetailsPage : ContentPage
 {
 	int routeId;
+	bool enteredBus = false;
 	public int RouteId
 	{
 		get => routeId;
@@ -57,6 +58,7 @@ public partial class RouteDetailsPage : ContentPage
 
             ErrorMsg.IsVisible = true;
             ErrorMsg.Text = "You are now on the bus.";
+			enteredBus = true;
         }
 		else
 		{
@@ -68,13 +70,23 @@ public partial class RouteDetailsPage : ContentPage
 
     private async void StopClicked(object sender, EventArgs e)
     {
-		// set stop variable to true
-		App.AppRepo.Stop = true;
+		if(enteredBus == true)
+		{
+			enteredBus = false;
+            // set stop variable to true
+            App.AppRepo.Stop = true;
 
-		// reset paid boolean to false
-		App.AppRepo.manager.Paid = false;
+            // reset paid boolean to false
+            App.AppRepo.manager.Paid = false;
 
-        // retrieved from https://lalorosas.com/blog/shell-routing
-        await Shell.Current.Navigation.PopAsync();
+            // retrieved from https://lalorosas.com/blog/shell-routing
+            await Shell.Current.Navigation.PopAsync();
+		}
+		else
+		{
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = "You must be in a bus to press Stop!";
+        }
+		
     }
 }
