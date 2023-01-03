@@ -65,7 +65,7 @@
                 HorizontalOptions="Start"
                 Grid.Row="2"
                 Grid.Column="1">
-            <Entry Placeholder="Surame..."
+            <Entry Placeholder="Surname..."
                    HorizontalTextAlignment="Center"
                    FontSize="16"
                    x:Name="Surname" />

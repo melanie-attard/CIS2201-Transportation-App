@@ -20,7 +20,6 @@ public partial class EditDriverPage : ContentPage
         int age = Convert.ToInt32(Age.Text);
         int phoneNum = Convert.ToInt32(PhoneNum.Text);
         string address = Address.Text;
-        bool assigned = Convert.ToBoolean(Assigned.Text);
 
         // run through checkInput() and output any errors
         Driver driver = new()
@@ -30,8 +29,7 @@ public partial class EditDriverPage : ContentPage
             Surname = surname,
             Age = age,
             PhoneNo = phoneNum,
-            Address = address,
-            Assigned = assigned
+            Address = address
         };
 
         // use UpdateAsync() to update db

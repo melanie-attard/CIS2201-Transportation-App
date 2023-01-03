@@ -199,6 +199,53 @@ namespace MyApp
             return id;
         }
 
+        public Driver CheckDriverInput(string Id, string name, string surname, string age, string phoneNum, string address)
+        {
+            try
+            {
+                int id = Convert.ToInt32(Id);
+                if (id == 0)
+                {
+                    throw new Exception("ID cannot be 0!");
+                }else if(name == null || surname == null || address == null)
+                {
+                    throw new Exception("Fields cannot be left empty!");
+                }
+
+                int Age = Convert.ToInt32(age);
+                if(Age == 0 || Age < 25 || Age > 60)
+                {
+                    throw new Exception("Age must be between 25 and 60!");
+                }
+
+                int Phone = Convert.ToInt32(phoneNum);
+                if(Phone == 0)
+                {
+                    throw new Exception("Phone number cannot be 0!");
+                }
+
+                Driver driver = new()
+                {
+                    Id = id,
+                    Name = name,
+                    Surname = surname,
+                    Age = Age,
+                    PhoneNo = Phone,
+                    Address = address
+                };
+                return driver;
+            }
+            catch (FormatException)
+            {
+                StatusMessage = "Id, Age, and Phone Number must be numbers!";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Error: {0}", ex.Message);
+            }
+            return new Driver();
+        }
+
         public async Task UpdateDriverAsync(Driver driver)
         {
             int result;
