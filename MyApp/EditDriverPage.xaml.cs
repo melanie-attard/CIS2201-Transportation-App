@@ -9,30 +9,29 @@ public partial class EditDriverPage : ContentPage
 		InitializeComponent();
 	}
 
-    private void editBtn_Clicked(object sender, EventArgs e)
+    private async void editBtn_Clicked(object sender, EventArgs e)
     {
-        int id = Convert.ToInt32(DriverId.Text);
-        // call LINQ method to return driver with matching Id
-        // if driver does not exist, output Error msg
-
-        string name = Name.Text;
-        string surname = Surname.Text;
-        int age = Convert.ToInt32(Age.Text);
-        int phoneNum = Convert.ToInt32(PhoneNum.Text);
-        string address = Address.Text;
-
-        // run through checkInput() and output any errors
-        Driver driver = new()
+        Driver driver = App.AppRepo.CheckDriverInput(DriverId.Text, Name.Text, Surname.Text, Age.Text, PhoneNum.Text, Address.Text);
+        if (driver.Id == 0)
         {
-            Id = id,
-            Name = name,
-            Surname = surname,
-            Age = age,
-            PhoneNo = phoneNum,
-            Address = address
-        };
+            // we have an empty driver instance
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = App.AppRepo.StatusMessage;
+            return;
+        }
 
-        // use UpdateAsync() to update db
+        // get driver with matching Id
+        Driver driver1 = await App.AppRepo.GetDriverById(driver.Id);
+        if(driver1 == null)
+        {
+            // driver does not exist
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = "The given Id does not exist!";
+            return;
+        }
+
+        // update db instance
+        await App.AppRepo.UpdateDriverAsync(driver);
         ErrorMsg.IsVisible = true;
         ErrorMsg.Text = "Driver updated successfully!";
     }
