@@ -95,6 +95,7 @@ public partial class DriverPage : ContentPage
         if(driverFound == true)
         {
             // reset all fields
+            driverEntry.Text = string.Empty;
             Route.Text = "null";
             busNum.Text = "null";
             Capacity.Text = "null";
