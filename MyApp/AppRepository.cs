@@ -260,6 +260,20 @@ namespace MyApp
             }
         }
 
+        public async Task AddDriverAsync(Driver driver)
+        {
+            int result;
+            try
+            {
+                result = await conn.InsertAsync(driver);
+                StatusMessage = string.Format("{0} record(s) updated.", result);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to update driver. Error: {0}", ex.Message);
+            }
+        }
+
         public async Task UpdateBusAsync(Bus bus)
         {
             int result;

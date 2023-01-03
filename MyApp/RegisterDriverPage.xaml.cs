@@ -34,6 +34,7 @@ public partial class RegisterDriverPage : ContentPage
 		}
 
 		// add driver to db
+		await App.AppRepo.AddDriverAsync(driver);
 		ErrorMsg.IsVisible = true;
 		ErrorMsg.Text = "Driver registered successfully!";
     }
