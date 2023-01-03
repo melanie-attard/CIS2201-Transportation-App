@@ -179,10 +179,25 @@ namespace MyApp
             return closest;
         }
 
-        //public string CheckInput(int Id)
-        //{
-
-        //}
+        public int CheckID(string Id)
+        {
+            int id;
+            try
+            {
+                id = Convert.ToInt32(Id);
+                if(id == 0)
+                {
+                    StatusMessage = "ID cannot be 0!";
+                    return 0;
+                }
+            }
+            catch (FormatException)
+            {
+                StatusMessage = "Please enter a number!";
+                return 0;
+            }
+            return id;
+        }
 
         public async Task UpdateDriverAsync(Driver driver)
         {

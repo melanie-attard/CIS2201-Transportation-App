@@ -14,7 +14,14 @@ public partial class DriverPage : ContentPage
 
     private async void driverBtn_Clicked(object sender, EventArgs e)
     {
-		int driverId = Convert.ToInt32(driverEntry.Text);
+		int driverId = App.AppRepo.CheckID(driverEntry.Text);
+        if (driverId == 0)
+        {
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = App.AppRepo.StatusMessage;
+            return;
+        }
+
         // load driver from database
         driver = await App.AppRepo.GetDriverById(driverId);
 

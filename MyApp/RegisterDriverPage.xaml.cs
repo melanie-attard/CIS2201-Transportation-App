@@ -11,9 +11,16 @@ public partial class RegisterDriverPage : ContentPage
 
     private async void createBtn_Clicked(object sender, EventArgs e)
     {
-		int id = Convert.ToInt32(DriverId.Text);
+		int id = App.AppRepo.CheckID(DriverId.Text);
+		if(id == 0)
+		{
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = App.AppRepo.StatusMessage;
+            return;
+        }
+
+		// load existing drivers from database
         List<Driver> drivers = await App.AppRepo.GetAllDrivers();
-     
         foreach (Driver d in drivers) 
 		{
 			if(d.Id == id)

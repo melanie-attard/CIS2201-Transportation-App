@@ -11,8 +11,21 @@ public partial class DriverManagerPage : ContentPage
 
     private async void assignBtn_Clicked(object sender, EventArgs e)
     {
-        int dId = Convert.ToInt32(DriverId.Text);
-        int rId = Convert.ToInt32(RouteId.Text);
+        int dId = App.AppRepo.CheckID(DriverId.Text);
+        if(dId == 0)
+        {
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = App.AppRepo.StatusMessage;
+            return;
+        }
+
+        int rId = App.AppRepo.CheckID(RouteId.Text);
+        if(rId == 0)
+        {
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = App.AppRepo.StatusMessage;
+            return;
+        }
 
         // check whether driver Id and route Id exist
         Driver driver = await App.AppRepo.GetDriverById(dId);
