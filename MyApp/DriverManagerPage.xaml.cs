@@ -1,3 +1,5 @@
+using MyApp.Models;
+
 namespace MyApp;
 
 public partial class DriverManagerPage : ContentPage
@@ -7,10 +9,52 @@ public partial class DriverManagerPage : ContentPage
 		InitializeComponent();
 	}
 
-    private void assignBtn_Clicked(object sender, EventArgs e)
+    private async void assignBtn_Clicked(object sender, EventArgs e)
     {
+        int dId = Convert.ToInt32(DriverId.Text);
+        int rId = Convert.ToInt32(RouteId.Text);
+
         // check whether driver Id and route Id exist
+        Driver driver = await App.AppRepo.GetDriverById(dId);
+        Bus bus = await App.AppRepo.GetBusByRoute(rId);
+
+        if(driver == null) 
+        {
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = "Driver Id does not exist!"; 
+            return; 
+        }
+
+        if(bus == null) 
+        {
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = "Route Id does not exist!"; 
+            return; 
+        }
+
         // check that both are not already assigned
+        if(driver.Assigned == true) 
+        {
+            ErrorMsg.IsVisible = true; 
+            ErrorMsg.Text = "The given driver is already assigned!"; 
+            return; 
+        }
+
+        if(bus.Assigned == true) 
+        { 
+            ErrorMsg.IsVisible = true;
+            ErrorMsg.Text = "The given route already has a driver!"; 
+            return; 
+        }
+
+        // assign driver to route
+        driver.Assigned = true;
+        bus.Assigned = true;
+        bus.DriverId = dId;
+        await App.AppRepo.UpdateBusAsync(bus);
+        await App.AppRepo.UpdateDriverAsync(driver);
+        ErrorMsg.IsVisible = true;
+        ErrorMsg.Text = "Driver successfully assigned to route " + rId;
     }
 
     private async void viewDriversBtn_Clicked(object sender, EventArgs e)

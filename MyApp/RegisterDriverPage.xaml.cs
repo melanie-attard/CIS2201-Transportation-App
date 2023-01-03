@@ -4,23 +4,23 @@ namespace MyApp;
 
 public partial class RegisterDriverPage : ContentPage
 {
-	List<Driver> drivers; //existing drivers in db
 	public RegisterDriverPage()
 	{
 		InitializeComponent();
 	}
 
-    private void createBtn_Clicked(object sender, EventArgs e)
+    private async void createBtn_Clicked(object sender, EventArgs e)
     {
 		int id = Convert.ToInt32(DriverId.Text);
-		// populate drivers list
-		foreach(Driver d in drivers) 
+        List<Driver> drivers = await App.AppRepo.GetAllDrivers();
+     
+        foreach (Driver d in drivers) 
 		{
 			if(d.Id == id)
 			{
 				// a driver with the given Id already exists
 				ErrorMsg.IsVisible = true;
-				ErrorMsg.Text = "The given Id already exists";
+				ErrorMsg.Text = "The given Id already exists!";
 				return;
 			}
 		}

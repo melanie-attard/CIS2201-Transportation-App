@@ -121,6 +121,19 @@ namespace MyApp
             return new Bus();
         }
 
+        public async Task<Bus> GetBusByRoute(int routeId)
+        {
+            try
+            {
+                return await conn.Table<Bus>().Where(bus => bus.RouteId == routeId).FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
+            }
+            return new Bus();
+        }
+
         public async Task<List<Schedule>> GetScheduleByRoute(int routeId)
         {
             try
@@ -165,6 +178,11 @@ namespace MyApp
             }
             return closest;
         }
+
+        //public string CheckInput(int Id)
+        //{
+
+        //}
 
         public async Task UpdateDriverAsync(Driver driver)
         {

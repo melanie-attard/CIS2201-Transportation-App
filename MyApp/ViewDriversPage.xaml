@@ -3,34 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyApp.ViewDriversPage"
              Title="Registered Drivers">
-    
-    <VerticalStackLayout Padding="20">
-        <CollectionView x:Name="viewDrivers">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border Stroke="black"
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <CollectionView x:Name="viewDrivers">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="black"
                             StrokeThickness="1"
                             StrokeShape="RoundRectangle"
                             Margin="0, 5">
-                        <Grid Padding="10, 20" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto">
-                            <Label Grid.Column="0" Grid.Row="0" Text="ID:" Style="{StaticResource titleStyle}" />
-                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Id}" FontSize="16" Padding="0, 10" />
-                            <Label Grid.Column="0" Grid.Row="1" Text="Name:" Style="{StaticResource titleStyle}" />
-                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Name}" FontSize="16" Padding="0, 10" />
-                            <Label Grid.Column="0" Grid.Row="2" Text="Surname:" Style="{StaticResource titleStyle}" />
-                            <Label Grid.Column="1" Grid.Row="2" Text="{Binding Surname}" FontSize="16" Padding="0, 10" />
-                            <Label Grid.Column="0" Grid.Row="3" Text="Age" Style="{StaticResource titleStyle}" />
-                            <Label Grid.Column="1" Grid.Row="3" Text="{Binding Age}" FontSize="16" Padding="0, 10" />
-                            <Label Grid.Column="0" Grid.Row="4" Text="Phone Number:" Style="{StaticResource titleStyle}" />
-                            <Label Grid.Column="1" Grid.Row="4" Text="{Binding PhoneNo}" FontSize="16" Padding="0, 10" />
-                            <Label Grid.Column="0" Grid.Row="5" Text="Address:" Style="{StaticResource titleStyle}" />
-                            <Label Grid.Column="1" Grid.Row="5" Text="{Binding Address}" FontSize="16" Padding="0, 10" />
-                            <Label Grid.Column="0" Grid.Row="6" Text="Assigned:" Style="{StaticResource titleStyle}" />
-                            <Label Grid.Column="1" Grid.Row="6" Text="{Binding Assigned}" FontSize="16" Padding="0, 10" />
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+                            <Grid Padding="10, 20" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto">
+                                <Label Grid.Column="0" Grid.Row="0" Text="ID:" Style="{StaticResource titleStyle}" />
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Id}" FontSize="16" Padding="0, 10" />
+                                <Label Grid.Column="0" Grid.Row="1" Text="Name:" Style="{StaticResource titleStyle}" />
+                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Name}" FontSize="16" Padding="0, 10" />
+                                <Label Grid.Column="0" Grid.Row="2" Text="Surname:" Style="{StaticResource titleStyle}" />
+                                <Label Grid.Column="1" Grid.Row="2" Text="{Binding Surname}" FontSize="16" Padding="0, 10" />
+                                <Label Grid.Column="0" Grid.Row="3" Text="Age" Style="{StaticResource titleStyle}" />
+                                <Label Grid.Column="1" Grid.Row="3" Text="{Binding Age}" FontSize="16" Padding="0, 10" />
+                                <Label Grid.Column="0" Grid.Row="4" Text="Phone Number:" Style="{StaticResource titleStyle}" />
+                                <Label Grid.Column="1" Grid.Row="4" Text="{Binding PhoneNo}" FontSize="16" Padding="0, 10" />
+                                <Label Grid.Column="0" Grid.Row="5" Text="Address:" Style="{StaticResource titleStyle}" />
+                                <Label Grid.Column="1" Grid.Row="5" Text="{Binding Address}" FontSize="16" Padding="0, 10" />
+                                <Label Grid.Column="0" Grid.Row="6" Text="Assigned:" Style="{StaticResource titleStyle}" />
+                                <Label Grid.Column="1" Grid.Row="6" Text="{Binding Assigned}" FontSize="16" Padding="0, 10" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
