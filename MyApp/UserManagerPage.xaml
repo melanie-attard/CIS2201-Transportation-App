@@ -4,7 +4,7 @@
              x:Class="MyApp.UserManagerPage"
              Title="User Manager">
     
-    <Grid Padding="10, 20" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto, Auto">
+    <Grid Padding="10, 20" ColumnDefinitions="Auto, Auto, *" RowDefinitions="Auto, 110, Auto">
         <Label Text="Current User Type:"
                Style="{StaticResource titleStyle}"
                Grid.Row="0"
@@ -18,7 +18,8 @@
                 Padding="3"
                 Margin="20, 0"
                 Grid.Row="0"
-                Grid.Column="1">
+                Grid.Column="1"
+                Grid.ColumnSpan="2">
             <!-- adapted from https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/picker?view=net-maui-7.0#set-the-itemssource-property -->
             <Picker x:Name="picker"
                     Title="Select a user type..."
@@ -53,14 +54,27 @@
                VerticalOptions="Center"
                HorizontalOptions="Start"/>
 
+        <ImageButton 
+            Source="refresh.png"
+            Scale="0.35"
+            BackgroundColor="LightGrey"
+            Padding="10"
+            Clicked="RefreshBtn_Clicked"
+            IsEnabled="True"
+            Grid.Row="1"
+            Grid.Column="3"
+            VerticalOptions="Center"
+            HorizontalOptions="End"/>
+
         <Button Text="Set as Paid"
                 x:Name="payBtn"
                 Padding="20, 10"
+                Margin="10, 0"
                 FontSize="Medium"
                 Clicked="payBtn_Clicked"
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
                 VerticalOptions="Center"
-                HorizontalOptions="End"/>
+                HorizontalOptions="Start"/>
     </Grid>
 </ContentPage>

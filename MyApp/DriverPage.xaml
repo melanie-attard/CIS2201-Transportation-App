@@ -112,7 +112,7 @@
                 StrokeShape="RoundRectangle"
                 Grid.Row="7" 
                 Grid.ColumnSpan="2">
-                <CollectionView x:Name="driverSchedule">
+                <CollectionView x:Name="driverSchedule" EmptyView="Login to view schedule...">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10, 20" ColumnDefinitions="2*, *, *, *, *, *, *" RowDefinitions="Auto">

@@ -2,9 +2,9 @@ namespace MyApp;
 
 public partial class UserManagerPage : ContentPage
 {
-	public UserManagerPage()
-	{
-		InitializeComponent();
+    public UserManagerPage()
+    {
+        InitializeComponent();
 
         if (App.AppRepo.Manager.Paid == true)
         {
@@ -14,11 +14,23 @@ public partial class UserManagerPage : ContentPage
 
     private void payBtn_Clicked(object sender, EventArgs e)
     {
-		if(App.AppRepo.Manager.Paid == false)
-		{
+        if (App.AppRepo.Manager.Paid == false)
+        {
             App.AppRepo.Manager.Paid = true;
-			paymentStats.Text = "PAID";
+            paymentStats.Text = "PAID";
         }
-		
+
+    }
+
+    private void RefreshBtn_Clicked(object sender, EventArgs e)
+    {
+        if (App.AppRepo.Manager.Paid == true)
+        {
+            paymentStats.Text = "PAID";
+        }
+        else
+        {
+            paymentStats.Text = "NOT PAID";
+        }
     }
 }
