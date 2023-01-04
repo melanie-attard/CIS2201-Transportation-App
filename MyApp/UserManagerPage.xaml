@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyApp.UserManagerPage"
              Title="User Manager">
-    
+
     <Grid Padding="10, 20" ColumnDefinitions="Auto, Auto, *" RowDefinitions="Auto, 110, Auto">
         <Label Text="Current User Type:"
                Style="{StaticResource titleStyle}"

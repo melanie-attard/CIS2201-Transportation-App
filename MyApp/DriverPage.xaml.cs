@@ -110,7 +110,6 @@ public partial class DriverPage : ContentPage
 
             // reset bus's driverId and assigned bool
             bus.Assigned = false;
-            bus.DriverId = 0;
             await App.AppRepo.UpdateBusAsync(bus);
         }
     }
