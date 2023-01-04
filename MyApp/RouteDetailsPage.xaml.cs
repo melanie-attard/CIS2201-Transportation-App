@@ -6,7 +6,6 @@ namespace MyApp;
 public partial class RouteDetailsPage : ContentPage
 {
 	int routeId;
-	bool enteredBus = false;
 	public int RouteId
 	{
 		get => routeId;
@@ -50,7 +49,7 @@ public partial class RouteDetailsPage : ContentPage
     private async void EnterBusClicked(object sender, EventArgs e)
     {
 		// verify that user has paid
-		if(App.AppRepo.Manager.Paid == true)
+		if(App.AppRepo.Manager.Paid == true && App.AppRepo.CurrentBus == 0)
 		{
             // add route instance to summary list
 			Route currentRoute = await App.AppRepo.GetRouteById(RouteId); 
@@ -58,25 +57,30 @@ public partial class RouteDetailsPage : ContentPage
 
             ErrorMsg.IsVisible = true;
             ErrorMsg.Text = "You are now on the bus.";
-			enteredBus = true;
+			App.AppRepo.CurrentBus = RouteId;
         }
 		else
 		{
 			ErrorMsg.IsVisible = true;
-			ErrorMsg.Text = "You must pay before entering the bus!";
+			if(App.AppRepo.Manager.Paid == false)
+			{
+                ErrorMsg.Text = "You must pay before entering the bus!";
+			}
+			else
+			{
+				ErrorMsg.Text = "Please exit the previous bus to enter!";
+			}
+			
 		}
 
     }
 
     private async void StopClicked(object sender, EventArgs e)
     {
-		if(enteredBus == true)
+		if(App.AppRepo.CurrentBus == RouteId)
 		{
-			enteredBus = false;
-            // set stop variable to true
+			App.AppRepo.CurrentBus = 0;
             App.AppRepo.Stop = true;
-
-            // reset paid boolean to false
             App.AppRepo.Manager.Paid = false;
 
             // retrieved from https://lalorosas.com/blog/shell-routing
@@ -85,7 +89,7 @@ public partial class RouteDetailsPage : ContentPage
 		else
 		{
             ErrorMsg.IsVisible = true;
-            ErrorMsg.Text = "You must be in a bus to press Stop!";
+            ErrorMsg.Text = "You must be in this bus to press Stop!";
         }
 		
     }

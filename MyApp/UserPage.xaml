@@ -34,21 +34,6 @@
                 HorizontalOptions="Center"
                 BackgroundColor="Coral"/>
 
-            <!--<CollectionView x:Name="busSummary" SelectionMode="None" EmptyView="You have not used any buses yet.">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                        <Border Stroke="black"
-                                StrokeThickness="1"
-                                StrokeShape="RoundRectangle">
-                            <Grid Padding="10, 20" ColumnDefinitions="*, 2*">
-                                <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
-                                <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>-->
-
             <Label Text="Routes"
                 Style="{StaticResource titleStyle}" />
 

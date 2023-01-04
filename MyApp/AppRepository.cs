@@ -9,13 +9,16 @@ namespace MyApp
         private readonly SQLiteAsyncConnection conn;
         public static string DBpath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "data.db3");
         public string StatusMessage { get; set; } // mostly for debugging purposes
-        public bool Stop { get; set; } = false;
+        public bool Stop { get; set; }
+        public int CurrentBus { get; set; }
         public UserManager Manager { get; set; }
 
         public AppRepository()
         {
             conn = new SQLiteAsyncConnection(DBpath);
             Manager = new UserManager();
+            Stop = false;
+            CurrentBus = 0;
         }
 
         public async Task<List<Route>> GetAllRoutes()
