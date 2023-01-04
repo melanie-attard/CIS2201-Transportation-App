@@ -6,7 +6,7 @@ public partial class UserManagerPage : ContentPage
 	{
 		InitializeComponent();
 
-        if (App.AppRepo.manager.Paid == true)
+        if (App.AppRepo.Manager.Paid == true)
         {
             paymentStats.Text = "PAID";
         }
@@ -14,9 +14,9 @@ public partial class UserManagerPage : ContentPage
 
     private void payBtn_Clicked(object sender, EventArgs e)
     {
-		if(App.AppRepo.manager.Paid == false)
+		if(App.AppRepo.Manager.Paid == false)
 		{
-            App.AppRepo.manager.Paid = true;
+            App.AppRepo.Manager.Paid = true;
 			paymentStats.Text = "PAID";
         }
 		

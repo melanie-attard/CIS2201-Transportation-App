@@ -41,7 +41,7 @@ public partial class RouteDetailsPage : ContentPage
         }).ToList();
 		routeSchedule.ItemsSource = combined;
 
-        if (App.AppRepo.manager.Paid == true)
+        if (App.AppRepo.Manager.Paid == true)
 		{
 			paymentStats.Text = "PAID";
 		}
@@ -50,11 +50,11 @@ public partial class RouteDetailsPage : ContentPage
     private async void EnterBusClicked(object sender, EventArgs e)
     {
 		// verify that user has paid
-		if(App.AppRepo.manager.Paid == true)
+		if(App.AppRepo.Manager.Paid == true)
 		{
             // add route instance to summary list
 			Route currentRoute = await App.AppRepo.GetRouteById(RouteId); 
-			if (currentRoute != null) { App.AppRepo.manager.EnterBus(currentRoute); }
+			if (currentRoute != null) { App.AppRepo.Manager.EnterBus(currentRoute); }
 
             ErrorMsg.IsVisible = true;
             ErrorMsg.Text = "You are now on the bus.";
@@ -77,7 +77,7 @@ public partial class RouteDetailsPage : ContentPage
             App.AppRepo.Stop = true;
 
             // reset paid boolean to false
-            App.AppRepo.manager.Paid = false;
+            App.AppRepo.Manager.Paid = false;
 
             // retrieved from https://lalorosas.com/blog/shell-routing
             await Shell.Current.Navigation.PopAsync();

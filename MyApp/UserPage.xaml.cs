@@ -12,8 +12,6 @@ public partial class UserPage : ContentPage
 
     private async void UpdateUI()
     {
-        busSummary.ItemsSource = App.AppRepo.manager.BusesUsed;
-
         List<Route> routes = await App.AppRepo.GetAllRoutes();
         if(routes != null) { routeList.ItemsSource = routes; }
         
@@ -39,5 +37,10 @@ public partial class UserPage : ContentPage
             await Shell.Current.GoToAsync($"stopDetails?stopName={name}");
             stopsList.SelectedItem = null;
         }
+    }
+
+    private async void summaryBtn_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("busSummary");
     }
 }

@@ -10,6 +10,7 @@
             Routing.RegisterRoute("viewDrivers", typeof(ViewDriversPage));
             Routing.RegisterRoute("newDriver", typeof(RegisterDriverPage));
             Routing.RegisterRoute("editDriver", typeof(EditDriverPage));
+            Routing.RegisterRoute("busSummary", typeof(BusSummaryPage));
         }
     }
 }

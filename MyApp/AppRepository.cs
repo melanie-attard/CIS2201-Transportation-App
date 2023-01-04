@@ -10,30 +10,18 @@ namespace MyApp
         public static string DBpath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "data.db3");
         public string StatusMessage { get; set; } // mostly for debugging purposes
         public bool Stop { get; set; } = false;
-        public UserManager manager { get; set; }
-
-        //private async Task Init()
-        //{
-        //    if (conn != null)
-        //    {
-        //        return;
-        //    }
-        //    conn = new SQLiteAsyncConnection(DBpath);
-        //    await conn.CreateTableAsync<Driver>();
-        //    await conn.CreateTableAsync<Bus>();
-        //}
+        public UserManager Manager { get; set; }
 
         public AppRepository()
         {
             conn = new SQLiteAsyncConnection(DBpath);
-            manager = new UserManager();
+            Manager = new UserManager();
         }
 
         public async Task<List<Route>> GetAllRoutes()
         {
             try
             {
-                //Init();
                 return await conn.Table<Route>().ToListAsync();
             }
             catch (Exception ex)

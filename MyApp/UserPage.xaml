@@ -24,11 +24,17 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20">
-        <Label 
-            Text="Buses Used"
-            Style="{StaticResource titleStyle}"/>
+            <Button x:Name="summaryBtn"
+                Text="View Travel History"
+                TextColor="Black"
+                Padding="30, 10"
+                FontSize="Medium"
+                Clicked="summaryBtn_Clicked"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                BackgroundColor="Coral"/>
 
-        <CollectionView x:Name="busSummary">
+            <!--<CollectionView x:Name="busSummary" SelectionMode="None" EmptyView="You have not used any buses yet.">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                         <Border Stroke="black"
@@ -41,29 +47,28 @@
                         </Border>
                     </DataTemplate>
             </CollectionView.ItemTemplate>
-        </CollectionView>
+        </CollectionView>-->
 
-        <Label 
-            Text="Routes"
-            Style="{StaticResource titleStyle}" />
+            <Label Text="Routes"
+                Style="{StaticResource titleStyle}" />
 
-        <!-- retrieved from https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/border?view=net-maui-7.0#create-a-border -->
-        <CollectionView x:Name="routeList" SelectionMode="Single" SelectionChanged="routeList_SelectionChanged">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border Stroke="black"
+            <!-- retrieved from https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/border?view=net-maui-7.0#create-a-border -->
+            <CollectionView x:Name="routeList" SelectionMode="Single" SelectionChanged="routeList_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="black"
                                 StrokeThickness="1"
                                 StrokeShape="RoundRectangle">
-                        <Grid Padding="10, 20" ColumnDefinitions="*, 2*">
-                            <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
-                            <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                            <Grid Padding="10, 20" ColumnDefinitions="*, 2*">
+                                <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
+                                <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Label 
+            <Label 
             Text="Bus Stops"
             Style="{StaticResource titleStyle}"/>
 

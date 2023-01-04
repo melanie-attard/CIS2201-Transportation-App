@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.BusSummaryPage"
+             Title="Buses Used">
+    
+    <VerticalStackLayout Padding="20">
+        <CollectionView x:Name="busSummary" SelectionMode="None" EmptyView="You have not used any buses yet.">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="black"
+                            StrokeThickness="2"
+                            StrokeShape="RoundRectangle"
+                            Margin="0, 5, 0, 5">
+                        <Grid Padding="10, 20" ColumnDefinitions="*, 2*" BackgroundColor="LightGray">
+                            <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
+                            <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

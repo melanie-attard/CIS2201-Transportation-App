@@ -17,6 +17,9 @@
     <MauiXaml Update="AppShell.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="BusSummaryPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="DriverManagerPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
