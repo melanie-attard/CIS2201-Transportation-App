@@ -20,5 +20,11 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Label x:Name="info"
+               Padding="0, 30"
+               FontSize="15"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"/>
     </VerticalStackLayout>
 </ContentPage>
