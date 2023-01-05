@@ -47,9 +47,13 @@ public partial class DriverPage : ContentPage
                         DisabilitySupport.Text = "No";
                     }
 
-                    if (App.AppRepo.Stop == true)
+                    if (App.AppRepo.Stop == bus.RouteId)
                     {
                         stopSign.Text = "ON";
+                    }
+                    else
+                    {
+                        stopSign.Text = "OFF";
                     }
 
                     List<Schedule> schedules = await App.AppRepo.GetScheduleByRoute(bus.RouteId);
@@ -86,7 +90,7 @@ public partial class DriverPage : ContentPage
         if(stopSign.Text == "ON")
         {
             stopSign.Text = "OFF";
-            App.AppRepo.Stop = false;
+            App.AppRepo.Stop = 0;
         }
     }
 

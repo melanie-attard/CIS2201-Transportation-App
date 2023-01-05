@@ -80,7 +80,7 @@ public partial class RouteDetailsPage : ContentPage
 		if(App.AppRepo.CurrentBus == RouteId)
 		{
 			App.AppRepo.CurrentBus = 0;
-            App.AppRepo.Stop = true;
+            App.AppRepo.Stop = RouteId;
             App.AppRepo.Manager.Paid = false;
 
             // retrieved from https://lalorosas.com/blog/shell-routing
