@@ -47,6 +47,19 @@ namespace MyApp
             return new List<BusStop>();
         }
 
+        public async Task<List<Bus>> GetAllBuses()
+        {
+            try
+            {
+                return await conn.Table<Bus>().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retreive data. {0}", ex.Message);
+            }
+            return new List<Bus>();
+        }
+
         public async Task<List<Driver>> GetAllDrivers()
         {
             try
