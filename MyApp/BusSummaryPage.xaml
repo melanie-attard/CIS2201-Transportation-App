@@ -3,28 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyApp.BusSummaryPage"
              Title="Buses Used">
-    
-    <VerticalStackLayout Padding="20">
-        <CollectionView x:Name="busSummary" SelectionMode="None" EmptyView="You have not used any buses yet.">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border Stroke="black"
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <CollectionView x:Name="busSummary" SelectionMode="None" EmptyView="You have not used any buses yet.">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="black"
                             StrokeThickness="2"
                             StrokeShape="RoundRectangle"
                             Margin="0, 5, 0, 5">
-                        <Grid Padding="10, 20" ColumnDefinitions="*, 2*" BackgroundColor="LightGray">
-                            <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
-                            <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                            <Grid Padding="10, 20" ColumnDefinitions="*, 2*" BackgroundColor="LightGray">
+                                <Label Grid.Column="0"  Text="{Binding Id}" FontSize="16" />
+                                <Label Grid.Column="1" Text="{Binding Name}" FontSize="16" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Label x:Name="info"
+            <Label x:Name="info"
                Padding="0, 30"
                FontSize="15"
                VerticalOptions="Center"
                HorizontalOptions="Start"/>
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

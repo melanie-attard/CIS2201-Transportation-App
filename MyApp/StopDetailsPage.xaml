@@ -91,13 +91,13 @@
                         <Border Stroke="black"
                                 StrokeThickness="1"
                                 StrokeShape="RoundRectangle"
+                                BackgroundColor="Aqua"
                                 Margin="2">
                             <VerticalStackLayout>
                                 <Label Text="{Binding route}" 
-                                       FontSize="16" 
-                                       Padding="5"
-                                       HorizontalOptions="Center" 
-                                       BackgroundColor="Aqua" />
+                                       FontSize="16"
+                                       Padding="7"
+                                       HorizontalOptions="Center" />
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
