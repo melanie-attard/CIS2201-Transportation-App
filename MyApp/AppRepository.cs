@@ -116,7 +116,7 @@ namespace MyApp
         {
             try
             {
-                return await conn.Table<Bus>().Where(bus => bus.DriverId == driverId).FirstOrDefaultAsync();
+                return await conn.Table<Bus>().Where(bus => bus.DriverId == driverId && bus.Assigned == true).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {
@@ -270,11 +270,25 @@ namespace MyApp
             try
             {
                 result = await conn.InsertAsync(driver);
-                StatusMessage = string.Format("{0} record(s) updated.", result);
+                StatusMessage = string.Format("{0} record(s) added.", result);
             }
             catch (Exception ex)
             {
-                StatusMessage = string.Format("Failed to update driver. Error: {0}", ex.Message);
+                StatusMessage = string.Format("Failed to add driver. Error: {0}", ex.Message);
+            }
+        }
+
+        public async Task DeleteDriverAsync(Driver driver)
+        {
+            int result;
+            try
+            {
+                result = await conn.DeleteAsync(driver);
+                StatusMessage = string.Format("{0} record(s) deleted.", result);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to delete driver. Error: {0}", ex.Message);
             }
         }
 

@@ -19,7 +19,7 @@ public partial class ViewDriversPage : ContentPage
 
         List<Driver> assigned = drivers.Where(d => d.Assigned == true).ToList();
         List<Bus> buses = await App.AppRepo.GetAllBuses();
-        // adding route Id to assigned drivers
+        // adding route Id to the assigned drivers and filtering out unassigned buses
         var combined = assigned.Join(buses, driver => driver.Id, bus => bus.DriverId, (assigned, buses) => new
         {
             assigned.Id,
@@ -29,8 +29,9 @@ public partial class ViewDriversPage : ContentPage
             assigned.PhoneNo,
             assigned.Address,
             assigned.Assigned,
-            buses.RouteId
-        }).ToList();
+            buses.RouteId,
+            bAssigned = buses.Assigned
+        }).Where(a => a.bAssigned == true).ToList();
         assignedDrivers.ItemsSource = combined;
     }
 }

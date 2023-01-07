@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.DeleteDriverPage"
+             Title="Delete a Driver">
+    
+    <VerticalStackLayout Padding="20">
+        <Label 
+            Text="Delete Driver"
+            Style="{StaticResource titleStyle}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" />
+
+        <Border Stroke="black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle"
+                Margin="0, 10"
+                Padding="20, 0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start">
+            <Entry Placeholder="ID..."
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"
+                   x:Name="DriverId" />
+        </Border>
+
+        <Button x:Name="deleteBtn"
+                Text="Delete"
+                Padding="20, 10"
+                Margin="30, 0"
+                FontSize="Medium"
+                Clicked="deleteBtn_Clicked"
+                VerticalOptions="Center"
+                HorizontalOptions="End" />
+
+        <Label x:Name="ErrorMsg"
+               IsVisible="false"
+               TextColor="Red"
+               FontAttributes="Bold"
+               Padding="0, 10, 0, 0"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

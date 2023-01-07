@@ -84,4 +84,9 @@ public partial class DriverManagerPage : ContentPage
     {
         await Shell.Current.GoToAsync("editDriver");
     }
+
+    private async void deleteDriverBtn_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("deleteDriver");
+    }
 }

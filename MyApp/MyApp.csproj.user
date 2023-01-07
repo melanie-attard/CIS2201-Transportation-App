@@ -20,6 +20,9 @@
     <MauiXaml Update="BusSummaryPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="DeleteDriverPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="DriverManagerPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

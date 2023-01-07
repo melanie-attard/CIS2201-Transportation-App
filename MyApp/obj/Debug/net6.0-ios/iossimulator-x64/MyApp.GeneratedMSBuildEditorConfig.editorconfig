@@ -28,6 +28,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyApp.BusSummaryPage.xaml
 build_metadata.AdditionalFiles.TargetPath = BusSummaryPage.xaml
 build_metadata.AdditionalFiles.RelativePath = BusSummaryPage.xaml
 
+[C:/Repos/CIS2201-Transportation-App/MyApp/DeleteDriverPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.DeleteDriverPage.xaml
+build_metadata.AdditionalFiles.TargetPath = DeleteDriverPage.xaml
+build_metadata.AdditionalFiles.RelativePath = DeleteDriverPage.xaml
+
 [C:/Repos/CIS2201-Transportation-App/MyApp/DriverManagerPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyApp.DriverManagerPage.xaml
