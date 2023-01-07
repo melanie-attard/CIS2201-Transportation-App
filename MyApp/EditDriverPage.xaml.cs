@@ -29,6 +29,11 @@ public partial class EditDriverPage : ContentPage
             ErrorMsg.Text = "The given Id does not exist!";
             return;
         }
+        
+        if(driver1.Assigned == true)
+        {
+            driver.Assigned = true; //otherwise assigned will be set to false
+        }
 
         // update db instance
         await App.AppRepo.UpdateDriverAsync(driver);
