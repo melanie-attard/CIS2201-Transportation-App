@@ -6,8 +6,6 @@
         public MainPage()
         {
             InitializeComponent();
-
-            //UserBtn.Clicked += async (s, e) => await Shell.Current.GoToAsync("userpage");
         }
 
         private void OnUserClicked(object sender, EventArgs e)

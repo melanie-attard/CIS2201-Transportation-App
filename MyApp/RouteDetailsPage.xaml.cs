@@ -91,6 +91,5 @@ public partial class RouteDetailsPage : ContentPage
             ErrorMsg.IsVisible = true;
             ErrorMsg.Text = "You must be in this bus to press Stop!";
         }
-		
     }
 }

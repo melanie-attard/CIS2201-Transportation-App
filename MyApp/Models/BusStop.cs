@@ -4,11 +4,6 @@ namespace MyApp.Models
 {
     public class BusStop
     {
-        //public BusStop() 
-        //{
-        //    Schedules= new List<Schedule>();
-        //}
-
         [PrimaryKey, Unique, NotNull]
         public int Id { get; set; }
 
@@ -20,8 +15,5 @@ namespace MyApp.Models
 
         [NotNull]
         public string Latitude { get; set; }
-
-        // navigational property
-        //public ICollection<Schedule> Schedules { get; set; }
     }
 }
