@@ -188,6 +188,12 @@ namespace MyApp
             int id;
             try
             {
+                if(Id == null)
+                {
+                    StatusMessage = "Field cannot be left empty!";
+                    return 0;
+                }
+
                 id = Convert.ToInt32(Id);
                 if(id == 0)
                 {
@@ -207,6 +213,11 @@ namespace MyApp
         {
             try
             {
+                if(Id == null)
+                {
+                    throw new Exception("ID field cannot be left empty!");
+                }
+
                 int id = Convert.ToInt32(Id);
                 if (id == 0)
                 {
